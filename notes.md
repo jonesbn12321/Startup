@@ -1,6 +1,8 @@
 # CS 260 Notes
 
 [My startup - Simon](https://simon.cs260.click)
+I'm not for sure what we're supposed to do here yet, but I'm practicing pushing from vs code to github.
+Edit things in vs code, to push it you go to sources the branch thing, press the plus to stage the changes, and then commit. Refresh github and it should show up. 
 
 ## Helpful links
 
