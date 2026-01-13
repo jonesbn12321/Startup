@@ -29,7 +29,7 @@ Everyone's played the classic memory matching game. This is a fun, new twist. Pl
 
 ### Design
 
-![Design image](ui_design.jpg)
+![Design image](ui_design.JPG)
 
 Here is a picture that shows the different screens that the game will have. 
 
