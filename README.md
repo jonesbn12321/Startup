@@ -18,10 +18,10 @@ Put your memory to the test and see what monsters you can match!
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
+- [x] A concise and compelling elevator pitch
 - [ ] Description of key features
 - [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
@@ -29,9 +29,8 @@ Everyone's played the classic memory matching game. This is a fun, new twist. Pl
 
 ### Design
 
-![Design image](ui_design.JPG)
-
 Here is a picture that shows the different screens that the game will have. 
+![Design image](ui_design.JPG)
 
 ```mermaid
 sequenceDiagram
@@ -42,20 +41,22 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Secure login
+- Ability to choose an opponent
+- Fun, interactive memory game
+- Ability to play against an opponent in real time
+- Record from each game played displayed
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - The structure
-- **CSS** - Make it nice and pretty
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Persist users and high scores
-- **WebSocket** - Enable 2 browsers to talk to each other through the server, this is how the two people will play together
+- **HTML** - This will be the basic structure of the website. There will be 4 HTML pages. One for login, one for opponent selection, one for the game, and one for viewing the records.
+- **CSS** - This will be used to make the website nice and pretty. There will be nice colors, spacing, formatting, and ensuring that it looks good on multiple screen sizes. 
+- **React** - This is how I will make the game interactive, enabling users to flip cards. It will also keep track of the scores. 
+- **Service** - This is how the website will save the game results and send information between the players. 
+- **DB/Login** - This will store the user accounts and information such as scores. When users login, their scores will be saved so that they can view them later.
+- **WebSocket** - Enable 2 browsers to talk to each other through the server, this will enable two people to play together at the same time.
 
 ## 🚀 AWS deliverable
 
