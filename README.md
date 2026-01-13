@@ -50,12 +50,12 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
+- **HTML** - The structure
+- **CSS** - Make it nice and pretty
 - **React** - Description here
 - **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **DB/Login** - Persist users and high scores
+- **WebSocket** - Enable 2 browsers to talk to each other through the server, this is how the two people will play together
 
 ## 🚀 AWS deliverable
 
