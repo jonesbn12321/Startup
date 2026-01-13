@@ -4,6 +4,20 @@
 I'm not for sure what we're supposed to do here yet, but I'm practicing pushing from vs code to github.
 Edit things in vs code, to push it you go to sources the branch thing, press the plus to stage the changes, and then commit. Refresh github and it should show up. 
 
+## GitHub
+
+### VS Code
+
+SAVE THE FILE
+
+Go to source on the side (branch looking thing)
+Here you can charge changes and commit them to make sure everything is synced up
+Or from the terminal, git commit and git pull
+
+To open it, ctrl shift p, markdowm: open preview on the side
+
+### Github
+
 ## Helpful links
 
 - [Course instruction](https://github.com/webprogramming260)
