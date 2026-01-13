@@ -27,9 +27,14 @@ Here is a picture that shows the different screens that the game will have.
 
 ```mermaid
 sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
+    actor Player 1
+    actor Player 2
+    participant Website
+    Player 1->>Website: Flips 2 Cards
+    Website->>Player 2: Display Cards
+    Player 1 ->>Website: Scores or not
+    Website ->> Player 1: Display scores
+    Website ->> Player 2: Display scores
 ```
 
 ### Key features
