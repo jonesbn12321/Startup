@@ -29,6 +29,33 @@ To open it, ctrl shift p, markdowm: open preview on the side
 My IP address is: 54.81.96.130
 Launching my AMI I initially put it on a private subnet. Even though it had a public IP address and the security group was right, I wasn't able to connect to it.
 
+### Application 
+
+HTTPS - functionality like web browsing
+
+### Transport
+TCP- You need everything to get there - amazon order
+UDP - Video games, it's ok if not absolutely everything shows up immediatley
+
+### Internet 
+
+IP - Connections
+
+### Link
+
+Fiber, Hardware - Physical Connections
+
+### DNS
+
+Look up IP adress, send it back to device, then send it to the web server
+Go to nslookup or whois to see if you registered correctly
+
+- AAAA: Adress
+- CNAME: Canonical Name, Alias. Finds this and the IP adress related to it
+- NS: Name server, Authority for queries and proof of ownership
+- TEXT: Metadata, Policies and Verification
+- 
+
 ## Caddy
 
 No problems worked just like it said in the [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
