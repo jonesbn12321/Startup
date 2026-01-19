@@ -60,7 +60,9 @@ I am going to use the required technologies in the following ways.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://https://brooklyn-jones.click/).
+
+My Public IPv4 address is 44.207.82.135
 
 ## 🚀 HTML deliverable
 
