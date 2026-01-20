@@ -58,18 +58,26 @@ Go to nslookup or whois to see if you registered correctly
 
 ## Caddy
 
-No problems worked just like it said in the [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
+Make sure to hit the keyboard shortcut to get into insert mode.  [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
 
 ## HTML
 
-This was easy. I was careful to use the correct structural elements such as header, footer, main, nav, and form. The links between the three views work great using the `a` element.
-
-The part I didn't like was the duplication of the header and footer code. This is messy, but it will get cleaned up when I get to React.
 This is the SRUCTURE!!!!
+
+!DOCTYPE html, html, head, title, body
+Head and title aren't in the body, it's in the tab
+UTF-8 gives you emojis!
+I have examples in a vs code file
+
+Can have sections, <section and <aside.
+Header and footer on each page that has my name and a link to github
+
 
 ## CSS
 
 This is the STYLE!!!
+
+CodePen has a lot of css examples
 
 This took a couple hours to get it how I wanted. It was important to make it responsive and Bootstrap helped with that. It looks great on all kinds of screen sizes.
 
