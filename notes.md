@@ -29,20 +29,55 @@ To open it, ctrl shift p, markdowm: open preview on the side
 My IP address is: 54.81.96.130
 Launching my AMI I initially put it on a private subnet. Even though it had a public IP address and the security group was right, I wasn't able to connect to it.
 
+### Application 
+
+HTTPS - functionality like web browsing
+
+### Transport
+TCP- You need everything to get there - amazon order
+UDP - Video games, it's ok if not absolutely everything shows up immediatley
+
+### Internet 
+
+IP - Connections
+
+### Link
+
+Fiber, Hardware - Physical Connections
+
+### DNS
+
+Look up IP adress, send it back to device, then send it to the web server
+Go to nslookup or whois to see if you registered correctly
+
+- AAAA: Adress
+- CNAME: Canonical Name, Alias. Finds this and the IP adress related to it
+- NS: Name server, Authority for queries and proof of ownership
+- TEXT: Metadata, Policies and Verification
+- 
+
 ## Caddy
 
-No problems worked just like it said in the [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
+Make sure to hit the keyboard shortcut to get into insert mode.  [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
 
 ## HTML
 
-This was easy. I was careful to use the correct structural elements such as header, footer, main, nav, and form. The links between the three views work great using the `a` element.
-
-The part I didn't like was the duplication of the header and footer code. This is messy, but it will get cleaned up when I get to React.
 This is the SRUCTURE!!!!
+
+!DOCTYPE html, html, head, title, body
+Head and title aren't in the body, it's in the tab
+UTF-8 gives you emojis!
+I have examples in a vs code file
+
+Can have sections, <section and <aside.
+Header and footer on each page that has my name and a link to github
+
 
 ## CSS
 
 This is the STYLE!!!
+
+CodePen has a lot of css examples
 
 This took a couple hours to get it how I wanted. It was important to make it responsive and Bootstrap helped with that. It looks great on all kinds of screen sizes.
 

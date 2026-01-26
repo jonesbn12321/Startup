@@ -4,64 +4,65 @@
 
 Put your memory to the test and see what monsters you can match!
 
-> [!NOTE]
-> This is a template for your startup application. You must modify this `README.md` file for each phase of your development. You only need to fill in the section for each deliverable when that deliverable is submitted in Canvas. Without completing the section for a deliverable, the TA will not know what to look for when grading your submission. Feel free to add additional information to each deliverable description, but make sure you at least have the list of rubric items and a description of what you did for each item.
 
-> [!NOTE]
-> If you are not familiar with Markdown then you should review the [documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) before continuing.
 
 ## 🚀 Specification Deliverable
 
-> [!NOTE]
-> Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
-
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] Proper use of Markdown
+- [x] A concise and compelling elevator pitch
+- [x] Description of key features
+- [x] Description of how you will use each technology
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
-Everyone's played the classic memory matching game. This is a fun, new twist. Play online against your friends to see who can remember the most monster matches. Keep your brain sharp and have a blast competing in this friendly competition.
+Everyone's played the classic memory matching game. This is a fun, new twist. Play online against your friends to see who can remember the most monsters. Keep your brain sharp and have a blast competing in this friendly competition.
 
 ### Design
 
-![Design image](placeholder.png)
-
 Here is a picture that shows the different screens that the game will have. 
+![Design image](ui_design.JPG)
 
 ```mermaid
 sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
+    actor Player 1
+    actor Player 2
+    participant Website
+    Player 1->>Website: Flips 2 Cards
+    Website->>Player 2: Display Cards
+    Player 1 ->>Website: Scores or not
+    Website ->> Player 1: Display scores
+    Website ->> Player 2: Display scores
 ```
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Secure login
+- Ability to choose an opponent
+- Fun, interactive memory game
+- Ability to play against an opponent in real time
+- Record from each game played displayed
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - This will be the basic structure of the website. There will be 4 HTML pages. One for login, one for opponent selection, one for the game, and one for viewing the records.
+- **CSS** - This will be used to make the website nice and pretty. There will be nice colors, spacing, formatting, and ensuring that it looks good on multiple screen sizes. 
+- **React** - This is how I will make the game interactive, enabling users to flip cards. It will also keep track of the scores. 
+- **Service** - This is how the website will save the game results and send information between the players. 
+- **DB/Login** - This will store the user accounts and information such as scores. When users login, their scores will be saved so that they can view them later.
+- **WebSocket** - Enable 2 browsers to talk to each other through the server, this will enable two people to play together at the same time.
 
 ## 🚀 AWS deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://https://brooklyn-jones.click/).
+
+My Public IPv4 address is 44.207.82.135
 
 ## 🚀 HTML deliverable
 
