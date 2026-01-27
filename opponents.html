@@ -2,6 +2,11 @@
 <html>
     <head>
         <title>Monster Matching</title>
+        <script>
+            const seed = Math.random().toString(36).substring(7);
+            document.getElementById("favicon").href =
+                `https://robohash.org/${seed}?set=set2&size=64x64`;
+        </script>
     </head>
     <body>
         <header>
@@ -15,7 +20,6 @@
                 </menu>
              </nav>
              <hr>
-
         </header>
         <main>
             <h1>Available Opponents</h1>
