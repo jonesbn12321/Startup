@@ -68,15 +68,15 @@ My Public IPv4 address is 44.207.82.135
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - Added a home page, opponents page, players page, and scrores page
+- [x] **Proper HTML element usage** - I used a wide variety of elements including bodys, headers, footers, <hr> for line, <br> for spaces, spans, ps, hrefs, and other types for texts. There are also tables and lists to display information. 
+- [x] **Links** - I did not complete this part of the deliverable. The headers have links to each page, and when you choose an opponent it takes you to the play page. 
+- [x] **Text** - There is clear text to explain what everything does. There are headers and footers, and text displaying opponents. 
+- [x] **3rd party API placeholder** - I used a third party api to randomly generate a new monster image each time the page is reloaded. The monster will show up in the tab. 
+- [x] **Images** - The monster from the api is an image. There is also a table of pink boxes that represent the cards to flip over. 
+- [x] **Login placeholder** - There is a login text box and a submit button.
+- [x] **DB data placeholder** - The Opponents page has placeholders where all of the active opponents will be displayed. 
+- [x] **WebSocket placeholder** - Placeholder for the two different players playing at the same time. It will switch back and forth between whos turn it is. 
 
 ## 🚀 CSS deliverable
 
