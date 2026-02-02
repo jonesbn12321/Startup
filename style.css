@@ -1,23 +1,23 @@
 *{
   font-family:"Arial Rounded MT Bold", Arial, sans-serif;
-  color: #F5F7FA;
+  color: #F54927;
   
 }
 
 
 body{
-  background-color:#1E3A5F;
+  background-color: skyblue;
 }
 section{
-  background-color: #2E5E8C;
+  background-color: rgb(83, 206, 255)
 }
 
 .flex{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: hotpink;
 }
+
 .divider {
   border: none;
   height: 1px;
@@ -27,7 +27,6 @@ section{
 
 header{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: yellow;
   padding:1em;
   margin: 1em 0;
   border-radius:5px;
