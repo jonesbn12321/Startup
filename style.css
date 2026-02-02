@@ -6,7 +6,7 @@
 
 body{
   margin: 0;
-  background:linear-gradient(135deg, #87CEEB, #6EC6FF);
+  background:linear-gradient(135deg, #F5F7FA, #E8EEF6);
   color: #1E3A5F;
 }
 
@@ -60,7 +60,7 @@ button{
   border: none;
   cursor: pointer;
   transition: all 0.25s ease;
-  border: 2px solid #1E3A5F;
+  border: 1px solid #1E3A5F;
 }
 button:hover{
   background: #FF9F1C;
@@ -86,45 +86,50 @@ header{
   text-align: center;
 }
 
+.players {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
 
+.player-name {
+  background:#FFD166;
+  color:#1E3A5F;
+  padding:4px 10px;
+  border-radius:8px;
+  margin-left:5px;
+}
+table{
+  border-collapse: collapse;
+  margin: auto;
+}
+td{
+    padding: 4px;
+}
+.square{
+    width: 80px;
+    height: 80px;
+    background:#FFD166;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background 0.2s;
+}
+.square:hover{
+  transform: scale(1.05);
+  background:#FF9F1C;
+}
 
+a:hover {
+  transform: translateY(-2px);
+}
 
-
-/*Card COlor: 4A90C2
-Bright Orange (primary accent)
-#FF9F1C – energetic, friendly
-
-Deep Orange (hover / active)
-#E76F00
-
-Soft Orange (wins / success)
-#FFD166
-
-Text on Dark Blue Backgrounds
-
-Main text:
-#F5F7FA (soft white, easy on eyes)
-
-Secondary text:
-#C7D4E2 (cool light gray-blue)
-
-Text on Orange Buttons
-
-Button text:
-#1E3A5F (dark blue for contrast)
-
-Card back:
-#FF9F1C or #2E5E8C
-
-Card front:
-#F5F7FA
-
-Matched card glow:
-#7CFF00 (slimy monster green 👀)
-
-Wrong match shake highlight:
-#E63946 (soft red)
-
+h1{
+  font-size: 2.2rem;
+  margin-bottom: 1rem; 
+}
+h2 {
+  font-size: 1.5rem;
+}
 /* @media (orientation: portrait) {
  body{
   flex-direction:column;

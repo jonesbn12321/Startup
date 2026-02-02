@@ -27,44 +27,27 @@
 
         </header>
         <main class = "container py-4">
-             <div class="players">
-        Player:
-        <span class="player-name">Player 1</span>
-        <span class="player-name">Player 2</span>
-      </div>
-    
 
-      <!-- More formatting with old style HTML -->
-      <br />
+            <div class="text-center mb-3">
+                <div class="players mb-2">
+                    Player:
+                    <span class="player-name">Player 1</span>
+                    <span class="player-name">Player 2</span>
+                </div>
+                
+                <div class="mb-2">
+                    <label>Score</label>
+                    <input class="form-control d-inline-block w-auto" value="--" readonly>
+                </div>
 
-      <div>
-        <label for="count">Score</label>
-        <input type="text" id="count" value="--" readonly />
-      </div>
+                <button class="btn btn-danger">Reset</button>
+            </div>
 
-      <br />
-
-      <div>
-        <button>Reset</button>
-      </div>
-
-      <br />
+            
 
       <div>
        <style>
-        table{
-            border-collapse: collapse;
-        }
-        td{
-            padding: 4px;
-        }
-        .square{
-            width: 80px;
-            height: 80px;
-            background-color:pink;
-            border: 2px solid hotpink;
-            cursor: pointer;
-        }
+       
        </style>
 
        <table>
