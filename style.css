@@ -13,25 +13,62 @@ body{
 menu{
   display:flex;
   list-style: none;
-  padding:0;
+  padding:1rem 0;
   margin:0;
   justify-content: center;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
-menu li{
-  margin-right: 20px;
+
+menu a {
+  text-decoration: none;
+  color: #1E3A5F;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+menu a:hover {
+  background: #FF9F1C;
+  color: white;
 }
 
 
-section{
-  background-color: rgb(83, 206, 255)
+section {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1100px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .flex{
   display: flex;
+  gap: 1.5rem;
   flex-direction: row;
   justify-content: space-between;
 }
-
+button{
+  background: #FF9F1C;
+  color: #1E3A5F;
+  border: none;
+  padding: 0.75rem, 1.5rem;
+  border-radius: 12px;
+  font-weight:600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+button:hover{
+  background:#E76F00;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+a, button {
+  transition: all 0.2s ease;
+}
 .divider {
   border: none;
   height: 1px;
@@ -48,9 +85,7 @@ header{
   text-align: center;
 }
 
-button{
-  color: #1E3A5F;
-}
+
 
 
 
