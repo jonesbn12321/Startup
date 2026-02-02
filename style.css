@@ -6,7 +6,7 @@
 
 body{
   margin: 0;
-  background-color:linear-gradient(135deg, #87CEEB, #6EC6FF);
+  background:linear-gradient(135deg, #87CEEB, #6EC6FF);
   color: #1E3A5F;
 }
 
@@ -52,19 +52,20 @@ section {
   justify-content: space-between;
 }
 button{
-  background: #FF9F1C;
+   background: transparent;
   color: #1E3A5F;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   border: none;
-  padding: 0.75rem, 1.5rem;
-  border-radius: 12px;
-  font-weight:600;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition: all 0.25s ease;
+  border: 2px solid #1E3A5F;
 }
 button:hover{
-  background:#E76F00;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background: #FF9F1C;
+  color: white;
+  border-color: #FF9F1C;
 }
 a, button {
   transition: all 0.2s ease;
