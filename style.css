@@ -35,6 +35,11 @@ menu a:hover {
   color: white;
 }
 
+menu a.active {
+  background: #FF9F1C;
+  color: white;
+}
+
 
 section {
   background: white;
@@ -86,6 +91,8 @@ header{
   margin: 1em 0;
   border-radius:5px;
   text-align: center;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .players {
@@ -108,8 +115,8 @@ td{
     padding: 4px;
 }
 .square{
-    width: 80px;
-    height: 80px;
+    width: min(12vw, 80px);
+    height: min(12vw, 80px);
     background:#FFD166;
     border: none;
     border-radius: 12px;
@@ -152,6 +159,13 @@ ul li{
 footer{
   text-align: center;
   padding-bottom: 1rem;
+  background: white;
+  margin-top: 3rem;
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.6rem;
+  }
 }
 /* @media (orientation: portrait) {
  body{
