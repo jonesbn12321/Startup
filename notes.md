@@ -79,6 +79,9 @@ This is the STYLE!!!
 
 CodePen has a lot of css examples
 
+You can use flex to resize elements automatically and grid to move cards around.
+All of my practice is in the folder
+
 This took a couple hours to get it how I wanted. It was important to make it responsive and Bootstrap helped with that. It looks great on all kinds of screen sizes.
 
 Bootstrap seems a bit like magic. It styles things nicely, but is very opinionated. You either do, or you do not. There doesn't seem to be much in between.
