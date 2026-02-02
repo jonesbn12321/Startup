@@ -167,6 +167,17 @@ footer{
     font-size: 1.6rem;
   }
 }
+.opponent-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.monster-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
 /* @media (orientation: portrait) {
  body{
   flex-direction:column;
