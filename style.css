@@ -1,0 +1,85 @@
+*{
+  font-family:"Arial Rounded MT Bold", Arial, sans-serif;
+  color: #F5F7FA;
+  
+}
+
+
+body{
+  background-color:#1E3A5F;
+}
+section{
+  background-color: #2E5E8C;
+}
+
+.flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: hotpink;
+}
+.divider {
+  border: none;
+  height: 1px;
+  background: #e5e7eb;
+  margin: 2rem 0;
+}
+
+header{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: yellow;
+  padding:1em;
+  margin: 1em 0;
+  border-radius:5px;
+  text-align: center;
+}
+
+button{
+  color: #1E3A5F;
+}
+
+
+
+/*Card COlor: 4A90C2
+Bright Orange (primary accent)
+#FF9F1C – energetic, friendly
+
+Deep Orange (hover / active)
+#E76F00
+
+Soft Orange (wins / success)
+#FFD166
+
+Text on Dark Blue Backgrounds
+
+Main text:
+#F5F7FA (soft white, easy on eyes)
+
+Secondary text:
+#C7D4E2 (cool light gray-blue)
+
+Text on Orange Buttons
+
+Button text:
+#1E3A5F (dark blue for contrast)
+
+Card back:
+#FF9F1C or #2E5E8C
+
+Card front:
+#F5F7FA
+
+Matched card glow:
+#7CFF00 (slimy monster green 👀)
+
+Wrong match shake highlight:
+#E63946 (soft red)
+
+/* @media (orientation: portrait) {
+ body{
+  flex-direction:column;
+ }
+ div {
+   transform: rotate(270deg);
+ }
+} */
