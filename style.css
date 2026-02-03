@@ -153,6 +153,8 @@ h2 {
   margin: auto;
   max-width: 100%;
   overflow-x: hidden;
+  display: flex;
+  justify-content: center;
 }
 ul li{
   margin-bottom: 10px;
