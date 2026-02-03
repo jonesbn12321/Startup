@@ -82,12 +82,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Visually appealing colors and layout. No overflowing elements.** - I did not complete this part of the deliverable.
-- [ ] **Use of a CSS framework** - I did not complete this part of the deliverable.
-- [ ] **All visual elements styled using CSS** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing using flexbox and/or grid display** - I did not complete this part of the deliverable.
-- [ ] **Use of a imported font** - I did not complete this part of the deliverable.
-- [ ] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I did not complete this part of the deliverable.
+- [x] **Visually appealing colors and layout. No overflowing elements.** - It took a lot to get all of the sqaures in one place, it is helpful to add a media option for when people will use it on their phones. 
+- [x] **Use of a CSS framework** - I used Bootstrap to do things like format my table and containers
+- [x] **All visual elements styled using CSS** - I have a css file that creates the visual elements. All elements have tags, ids, or classes that tell it what style to use. 
+- [x] **Responsive to window resizing using flexbox and/or grid display** - I use flex to make sure that my elements are sized well, and to put things in columns. I tried to use grid on my game board itself but everything was getting messed up so I decided to keep that a table. 
+- [x] **Use of a imported font** - I imported the "Inter" font from google and use it for a lot of the text
+- [x] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I use many different selectors. Lots of elements, like body, menu, footer, table, buttion, headers, lists, etc. Then there are different classes like my square and containers. There are id's for things like my players. The pseudos are things like hover that I use on the buttons, and active to see if the object is being used
 
 ## 🚀 React part 1: Routing deliverable
 
