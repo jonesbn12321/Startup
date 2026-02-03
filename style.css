@@ -110,6 +110,7 @@ header{
 table{
   border-collapse: collapse;
   margin: auto;
+  max-width: 100%;
 }
 td{
     padding: 4px;
@@ -151,6 +152,8 @@ h2 {
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   width: fit-content;
   margin: auto;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 ul li{
   margin-bottom: 10px;
@@ -162,11 +165,7 @@ footer{
   background: white;
   margin-top: 3rem;
 }
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.6rem;
-  }
-}
+
 .opponent-btn {
   display: inline-flex;
   align-items: center;
@@ -178,11 +177,23 @@ footer{
   height: 32px;
   object-fit: contain;
 }
-/* @media (orientation: portrait) {
- body{
-  flex-direction:column;
- }
- div {
-   transform: rotate(270deg);
- }
-} */
+
+.game-controls{
+  display:flex;
+  flex-direction: column;
+  gap:0.7rem;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  main{
+    padding-left: 0.5rem;
+    padding-right:0.5rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .board-container{
+    overflow-x:auto;
+  }
+}
