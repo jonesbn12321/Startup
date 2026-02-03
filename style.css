@@ -185,7 +185,13 @@ footer{
   gap:0.7rem;
   align-items: center;
 }
+#player1-name {
+  background: #FFD166;
+}
 
+#player2-name {
+  background: #4CC9F0;
+}
 @media (max-width: 600px) {
   main{
     padding-left: 0.5rem;
