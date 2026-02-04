@@ -127,7 +127,35 @@ I also used SVG to make the icon and logo for the app. This turned out to be a p
 
 ## React Part 1: Routing
 
-Setting up Vite and React was pretty simple. I had a bit of trouble because of conflicting CSS. This isn't as straight forward as you would find with Svelte or Vue, but I made it work in the end. If there was a ton of CSS it would be a real problem. It sure was nice to have the code structured in a more usable way.
+React is the Boostrap of Java
+JSX - combines javascript and html
+Put Java inside curly braces
+const x = <p class = 'pretty' id = '2' cow = 'moo'> text{1+1}<div><b>rat</b></div></p>
+
+Component: 
+Defind:
+const hello = (){
+return <div>Hello React</div>;
+};
+
+Use:
+const root = React.DOM.createRoot(Document.querySelector('#root'));
+root.render(<Hello/>);
+
+const Hello = ({parameters}) => {
+  let i = 3;
+ return <div {style ='display:$(props.d)'}>Hello JKB!{i++}</div>;
+};
+
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(<Hello d='none'/>); - Can put any parameters here like phrase = 'say'
+<div id="root">loading...</div>
+
+I think State will be helpful when it comes to clicking the squares
+use three equal signs if(1===1)
+
+
+
 
 ## React Part 2: Reactivity
 
