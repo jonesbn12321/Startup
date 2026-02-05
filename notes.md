@@ -127,6 +127,15 @@ I also used SVG to make the icon and logo for the app. This turned out to be a p
 
 ## React Part 1: Routing
 
+Copy and paste a lot of commands into the terminal
+When you put it in it's jsx file, turn all class to className
+use npm and vite to see it live 
+npm run dev
+should probably be able to follow simon isntructions to my startup
+
+deploy:
+ ./deployReact.sh -k m-m-east1.pem -h brooklyn-jones.click -s simon
+
 React is the Boostrap of Java
 JSX - combines javascript and html
 Put Java inside curly braces
