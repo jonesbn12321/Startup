@@ -134,7 +134,7 @@ npm run dev
 should probably be able to follow simon isntructions to my startup
 
 deploy:
-deployReact.sh -k m-m-east1.pem -h brooklyn-jones.click -s simon  - ish
+ ./deployReact.sh -k m-m-east1.pem -h brooklyn-jones.click -s simon
 
 React is the Boostrap of Java
 JSX - combines javascript and html
