@@ -15,20 +15,26 @@ export default function App() {
 
   return (
     <div className="app bg-dark text-light">
-
       <header>
-            <h1>Monster Matching</h1>
-            {/* <!-- Navigation Elements to get to each page --> */}
-             <nav>
-                <menu>
-                    <li><a href = "index.html"class = "active">Home</a></li>
-                    <li><a href = "opponents.html">Choose Opponent</a></li>
-                    <li><a href = "scores.html">Scores</a></li>
-                </menu>
-             </nav>
+          <h1>Monster Matching</h1>
+          {/* <!-- Navigation Elements to get to each page --> */}
+            <nav>
+              <menu>
+                  <li><a href = "index.html"class = "active">Home</a></li>
+                  <li><a href = "opponents.html">Choose Opponent</a></li>
+                  <li><a href = "scores.html">Scores</a></li>
+              </menu>
+            </nav>
+      </header>
+    
+      <main>App Components here</main>
 
-        </header>
-
+      {/* <footer>
+            <hr>
+            <span class = "test-reset">Brooklyn Jones</span>
+            <br>
+            <a href = "https://github.com/jonesbn12321/Startup">GitHub</a>
+      </footer> */}
     </div>
   );
 }
