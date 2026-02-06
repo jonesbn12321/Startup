@@ -3,15 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
 export default function App() {
-    // Load favicon when it loads
-    useEffect(() => {
-    const seed = Math.random().toString(36).substring(7);
-    const favicon = document.getElementById("favicon");
-
-    if (favicon) {
-      favicon.href = `https://robohash.org/${seed}?set=set2&size=64x64`;
-    }
-  }, []);
 
   return (
     <div className="app bg-dark text-light">
@@ -20,7 +11,7 @@ export default function App() {
           {/* <!-- Navigation Elements to get to each page --> */}
             <nav>
               <menu>
-                  <li><a href = "index.html"class = "active">Home</a></li>
+                  <li><a href = "index.html"className = "active">Home</a></li>
                   <li><a href = "opponents.html">Choose Opponent</a></li>
                   <li><a href = "scores.html">Scores</a></li>
               </menu>
@@ -29,12 +20,11 @@ export default function App() {
     
       <main>App Components here</main>
 
-      {/* <footer>
-            <hr>
-            <span class = "test-reset">Brooklyn Jones</span>
-            <br>
-            <a href = "https://github.com/jonesbn12321/Startup">GitHub</a>
-      </footer> */}
+      <footer>
+        <hr />
+        <p >Brooklyn Jones</p>
+        <a href = "https://github.com/jonesbn12321/Startup">GitHub</a>
+      </footer>
     </div>
   );
 }

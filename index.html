@@ -7,6 +7,15 @@
         <title>Monster Matching</title>
 
         <link id="favicon" rel="icon" />
+         <script>
+            const seed = Math.random().toString(36).substring(7);
+            document.addEventListener("DOMContentLoaded", () => {
+            const favicon = document.getElementById("favicon");
+            if (favicon) {
+                favicon.href = `https://robohash.org/${seed}?set=set2&size=64x64`;
+            }
+            });
+        </script>
 
     </head>
     <body>
@@ -14,11 +23,6 @@
         <div id="root"></div>
         <script type="module" src="/index.jsx"></script>
     </body>
-    <footer>
-        <hr>
-        <span class = "test-reset">Brooklyn Jones</span>
-        <br>
-        <a href = "https://github.com/jonesbn12321/Startup">GitHub</a>
-    </footer>
+    
   
 </html>
