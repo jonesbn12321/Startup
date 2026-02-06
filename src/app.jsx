@@ -16,17 +16,18 @@ export default function App() {
   return (
     <div className="app bg-dark text-light">
 
-      <header className="container-fluid">
-        <nav className="navbar fixed-top navbar-dark">
-          <div className="navbar-brand">
-            Monster Matching
-          </div>
-        </nav>
-      </header>
+      <header>
+            <h1>Monster Matching</h1>
+            {/* <!-- Navigation Elements to get to each page --> */}
+             <nav>
+                <menu>
+                    <li><a href = "index.html"class = "active">Home</a></li>
+                    <li><a href = "opponents.html">Choose Opponent</a></li>
+                    <li><a href = "scores.html">Scores</a></li>
+                </menu>
+             </nav>
 
-      <main className="container-fluid mt-5 pt-4">
-        <h1>Monster Matching</h1>
-      </main>
+        </header>
 
     </div>
   );
