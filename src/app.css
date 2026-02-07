@@ -13,7 +13,7 @@
 menu{
   display:flex;
   list-style: none;
-  padding:1rem 0;
+  padding:1rem 20;
   margin:0;
   justify-content: center;
   background: rgba(255, 255, 255, 0.85);
