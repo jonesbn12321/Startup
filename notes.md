@@ -168,6 +168,26 @@ use three equal signs if(1===1)
 
 ## React Part 2: Reactivity
 
+State -> Component
+
+
+function App() {
+  const [color, updateColor] = React.useState("#737AB0");
+  //Sets default Color
+
+  return (
+    <div>
+      <h1>Pick a color</h1>
+      //Both componenets
+      <ColorDisplay color={color} />
+      <ColorPicker color={color} updateColor={updateColor} />
+    </div>
+  );
+}
+
+<input type="color" onChange={onChange} value={color} />
+{onChange} = function value - can be names anything
+
 This was a lot of fun to see it all come together. I had to keep remembering to use React state instead of just manipulating the DOM directly.
 
 Handling the toggling of the checkboxes was particularly interesting.
