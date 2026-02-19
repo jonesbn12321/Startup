@@ -211,3 +211,25 @@ Handling the toggling of the checkboxes was particularly interesting.
   ))}
 </div>
 ```
+## Promises 
+Like a list of what you're going to do 
+either pending or resolved
+promise.then() - does what is in () once it's resolved
+
+x= fetch('https://quote.cs260.click')
+y = x.then(r => r.json())
+y.then((t)=>console.log(t))
+
+gets the object from cs260.click then prints it to the console as a json
+instead of resolve('Success!')
+can do reject('Failure!')
+
+if it's a failure do .cath((err) => console.error('Error: ${error}'))
+.finally(()=> console.log('Toss completed')
+
+async
+can chain .then().then().then()
+or write it as 
+a = await fetch('https://quote.cs260.click') - gets response instread of promise
+b = await a.json
+
