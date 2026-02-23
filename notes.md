@@ -168,17 +168,6 @@ use three equal signs if(1===1)
 
 ## React Part 2: Reactivity
 
-Console.log prints to Google Log
-declare a variable with let or const
-need three = (=== or !==)
-Basically the same as java or c++
-
-function name(parameters){
-  what it does
-}
-
-arrow functions - declared anywhere and passed as a parameter
-
 This was a lot of fun to see it all come together. I had to keep remembering to use React state instead of just manipulating the DOM directly.
 
 Handling the toggling of the checkboxes was particularly interesting.
@@ -202,3 +191,25 @@ Handling the toggling of the checkboxes was particularly interesting.
   ))}
 </div>
 ```
+## Promises 
+Like a list of what you're going to do 
+either pending or resolved
+promise.then() - does what is in () once it's resolved
+
+x= fetch('https://quote.cs260.click')
+y = x.then(r => r.json())
+y.then((t)=>console.log(t))
+
+gets the object from cs260.click then prints it to the console as a json
+instead of resolve('Success!')
+can do reject('Failure!')
+
+if it's a failure do .cath((err) => console.error('Error: ${error}'))
+.finally(()=> console.log('Toss completed')
+
+async
+can chain .then().then().then()
+or write it as 
+a = await fetch('https://quote.cs260.click') - gets response instread of promise
+b = await a.json
+
