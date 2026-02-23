@@ -6,7 +6,7 @@ export function Login(setUser) {
     function loginUser(){
         console.log('login '+name + " "+password);
         localStorage.setItem('user', name, password);
-        setUser(name);
+        setName(name);
     }
 
     function nameChange(e){
