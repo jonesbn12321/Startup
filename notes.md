@@ -168,6 +168,17 @@ use three equal signs if(1===1)
 
 ## React Part 2: Reactivity
 
+Console.log prints to Google Log
+declare a variable with let or const
+need three = (=== or !==)
+Basically the same as java or c++
+
+function name(parameters){
+  what it does
+}
+
+arrow functions - declared anywhere and passed as a parameter
+
 This was a lot of fun to see it all come together. I had to keep remembering to use React state instead of just manipulating the DOM directly.
 
 Handling the toggling of the checkboxes was particularly interesting.
