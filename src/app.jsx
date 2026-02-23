@@ -8,6 +8,7 @@ import { Scores } from './scores/scores';
 import { Opponents } from './opponents/opponents';
 
 export default function App() {
+  const[user, setUser]= React.useState(localStorage.getItem('user')||null);
 
   return (
     <BrowserRouter>
@@ -19,13 +20,13 @@ export default function App() {
               <nav>
                 <menu>
                     <li><NavLink className={({ isActive }) => isActive ? "nav-button active" : "nav-button"} to="/">Login</NavLink></li>
-                    <li><NavLink className={({ isActive }) => isActive ? "nav-button active" : "nav-button"} to="/opponents">Opponents</NavLink></li>
+                    {user && <li><NavLink className={({ isActive }) => isActive ? "nav-button active" : "nav-button"} to="/opponents">Opponents</NavLink></li>}
                     <li><NavLink className={({ isActive }) => isActive ? "nav-button active" : "nav-button"} to="/scores">Scores</NavLink></li>                </menu>
               </nav>
         </header>
       
         <Routes>
-          <Route path='/' element={<Login />} exact />
+          <Route path='/' element={<Login setUser = {setUser}/>} exact />
           <Route path='/opponents' element={<Opponents />} />
           <Route path='/scores' element={<Scores />} />
           <Route path='/play' element={<Play />} />
