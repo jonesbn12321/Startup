@@ -2,6 +2,10 @@ import React from 'react';
 
 export function Play({user}) {
     const[msg, setMsg]= React.useState('...listening');
+    const [cards, setCards] = React.useState([]);
+    const [flipped, setFlipped] = React.useState([]);
+    const [matched, setMatched] = React.useState([]);
+    const [score, setScore] = React.useState(0);
 
     React.useEffect(()=>{
         setInterval(()=>{
