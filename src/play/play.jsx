@@ -24,6 +24,31 @@ export function Play({user}) {
         setScore(0);
     }
 
+    function handleClick(index) {
+        if (
+            flipped.length === 2 ||
+            flipped.includes(index) ||
+            matched.includes(index)
+        ) {
+            return;
+        }
+        const newFlipped = [...flipped, index];
+        setFlipped(newFlipped);
+
+        if(newFlipped.length ===2){
+            const [first, second] = newFlipped;
+
+            if (cards[first] === cards[second]) {
+                setMatched([...matched, first, second]);
+                setScore(prev => prev + 1);
+                setFlipped([]);
+            } else {
+            setTimeout(() => {
+                setFlipped([]);
+            }, 800);
+            }
+        }
+    }
     return (
     <main className = "container py-4">
             {/* <!-- const images = ['monster1.png'] --> */}
