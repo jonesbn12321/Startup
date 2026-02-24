@@ -205,7 +205,7 @@ instead of resolve('Success!')
 can do reject('Failure!')
 
 if it's a failure do .cath((err) => console.error('Error: ${error}'))
-.finally(()=> console.log('Toss completed')
+.finally(()=> console.log('Toss completed'))
 
 async
 can chain .then().then().then()
@@ -226,3 +226,8 @@ The server has to wait to be asked to do something
 fetch(url) - returns a promise
 .then(r=> r.json())
 .then(j=> console.log(j.value))
+
+This looks better and is easier to debug
+const r = await fetch('https://quote.cs260.click/')
+const j = await r.json()
+console.log(j)
