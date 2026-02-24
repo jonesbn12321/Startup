@@ -23,12 +23,16 @@ export function Play({user}) {
                     Player:
                     <span id="player-name"> {user}</span>
                 </div>
+                <div className="mb-2">
+                    <label>{user} Score</label>
+                    <input className="form-control d-inline-block w-auto" value="--" readOnly />
+                </div>
                 <div className="players mb-2">
                     Player:
                     <span id="player-name"> Player 2</span>
                 </div>
                 <div className="mb-2">
-                    <label>Score</label>
+                    <label>Player 2 Score</label>
                     <input className="form-control d-inline-block w-auto" value="--" readOnly />
                 </div>
 
