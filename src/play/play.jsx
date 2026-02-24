@@ -51,17 +51,10 @@ export function Play({user}) {
     }
     return (
     <main className = "container py-4">
-            {/* <!-- const images = ['monster1.png'] --> */}
-            <div>{msg}</div>
 
             <div className="text-center mb-3 game-controls">
                 <div className="players mb-2">
-                    Player:
-                    <span id="player-name"> {user}</span>
-                </div>
-                <div className="mb-2">
-                    <label>{user} Score</label>
-                    <input className="form-control d-inline-block w-auto" value="--" readOnly />
+                    <h4>{user} Score: {score}</h4>
                 </div>
                 <div className="players mb-2">
                     Player:
@@ -71,8 +64,7 @@ export function Play({user}) {
                     <label>Player 2 Score</label>
                     <input className="form-control d-inline-block w-auto" value="--" readOnly />
                 </div>
-
-                <button className="btn btn-danger">Reset</button>
+                <button className="btn btn-danger" onClick={initializeGame}>Reset</button>
             </div>
 
             
@@ -82,6 +74,14 @@ export function Play({user}) {
        
        </style>
         <div className="board-container">
+            <div className = "row">
+                {cards.map((card, index)=>{
+                    
+                }
+                )}
+            </div>
+
+
         <table>
             <tbody>
             <tr>
