@@ -69,47 +69,26 @@ export function Play({user}) {
 
             
 
-      <div>
+    <div>
        <style>
        
        </style>
         <div className="board-container">
             <div className = "row">
                 {cards.map((card, index)=>{
-                    
-                }
-                )}
+                    const isFlipped = flipped.includes(index)||matched.includes(index);
+
+                    return (
+                        <div key={index} className = "col-3 mb-3 text-center">
+                            <button className = "sqaure" onClick = {()=>handleClick(index)}>
+                                {isFlipped ?(
+                                    <img src ={`/src/${card}`}/>
+                                ):('?')}
+                            </button>
+                        </div>
+                    );
+                })}
             </div>
-
-
-        <table>
-            <tbody>
-            <tr>
-                <td><button className = "square"></button></td>
-                <td><button className = "square"></button></td>
-                <td><button className = "square"></button></td>
-                <td><button className = "square"></button></td>
-            </tr>
-            </tbody>
-            <tbody>
-            <tr>
-                <td><button className = "square"></button></td>
-                <td><button className = "square"></button></td>
-                <td><button className = "square"></button></td>
-                <td><button className = "square"></button></td>
-            </tr>
-            </tbody>
-            <tbody>
-            <tr>
-                <td><button className = "square"></button></td>
-                <td><button className = "square"></button></td>
-                <td><button className = "square"></button></td>
-                <td><button className = "square"></button></td>
-            </tr>
-            </tbody>
-        </table>
+            </div>
         </div>
-      </div>
-        </main>
-  );
-}
+        </main>)}
