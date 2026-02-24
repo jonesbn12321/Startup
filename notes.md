@@ -213,3 +213,16 @@ or write it as
 a = await fetch('https://quote.cs260.click') - gets response instread of promise
 b = await a.json
 
+## Service
+[POST] /user
+[GET] /user
+[GET] /scores
+[GET] /user/route
+how to access variables?
+curl https://link gets html
+
+fetch('/db/user') - how to get it from a database server/other client request
+The server has to wait to be asked to do something
+fetch(url) - returns a promise
+.then(r=> r.json())
+.then(j=> console.log(j.value))
