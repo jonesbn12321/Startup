@@ -1,12 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 export function Login({setUser}) {
     const [name, setName] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const navigate = useNavigate();
+
     function loginUser(){
         console.log('login '+name + " "+password);
         localStorage.setItem('user', name, password);
         setUser(name);
+        navigate('/opponents');
     }
 
     function nameChange(e){
