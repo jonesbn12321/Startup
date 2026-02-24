@@ -1,25 +1,25 @@
 import React from 'react';
 
-export function Play() {
+export function Play({user}) {
   return (
-    <main class = "container py-4">
+    <main className = "container py-4">
             {/* <!-- const images = ['monster1.png'] --> */}
 
-            <div class="text-center mb-3 game-controls">
-                <div class="players mb-2">
+            <div className="text-center mb-3 game-controls">
+                <div className="players mb-2">
                     Player:
-                    <span id="player-name">Player 1</span>
+                    <span id="player-name"> {user}</span>
                 </div>
-                <div class="players mb-2">
+                <div className="players mb-2">
                     Player:
-                    <span id="player-name">Player 2</span>
+                    <span id="player-name"> Player 2</span>
                 </div>
-                <div class="mb-2">
+                <div className="mb-2">
                     <label>Score</label>
-                    <input class="form-control d-inline-block w-auto" value="--" readonly />
+                    <input className="form-control d-inline-block w-auto" value="--" readOnly />
                 </div>
 
-                <button class="btn btn-danger">Reset</button>
+                <button className="btn btn-danger">Reset</button>
             </div>
 
             
@@ -28,26 +28,32 @@ export function Play() {
        <style>
        
        </style>
-        <div class="board-container">
+        <div className="board-container">
         <table>
+            <tbody>
             <tr>
-                <td><button class = "square"></button></td>
-                <td><button class = "square"></button></td>
-                <td><button class = "square"></button></td>
-                <td><button class = "square"></button></td>
+                <td><button className = "square"></button></td>
+                <td><button className = "square"></button></td>
+                <td><button className = "square"></button></td>
+                <td><button className = "square"></button></td>
             </tr>
+            </tbody>
+            <tbody>
             <tr>
-                <td><button class = "square"></button></td>
-                <td><button class = "square"></button></td>
-                <td><button class = "square"></button></td>
-                <td><button class = "square"></button></td>
+                <td><button className = "square"></button></td>
+                <td><button className = "square"></button></td>
+                <td><button className = "square"></button></td>
+                <td><button className = "square"></button></td>
             </tr>
+            </tbody>
+            <tbody>
             <tr>
-                <td><button class = "square"></button></td>
-                <td><button class = "square"></button></td>
-                <td><button class = "square"></button></td>
-                <td><button class = "square"></button></td>
+                <td><button className = "square"></button></td>
+                <td><button className = "square"></button></td>
+                <td><button className = "square"></button></td>
+                <td><button className = "square"></button></td>
             </tr>
+            </tbody>
         </table>
         </div>
       </div>
