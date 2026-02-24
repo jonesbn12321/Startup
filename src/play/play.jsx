@@ -8,14 +8,21 @@ export function Play({user}) {
     const [score, setScore] = React.useState(0);
 
     React.useEffect(()=>{
-        setInterval(()=>{
-            const names = ['Bob', 'Sue', 'Tim'];
-            const randomName = names[Math.floor(Math.random() * names.length)];
-            const randomCount = Math.floor((Math.random()*100)+1);
-            const newMsg = `${randomName}: ${randomCount}`;
-            setMsg(newMsg);
-        },10000);
-    })
+        initializeGame();
+    },[]);
+
+    function initializeGame(){
+        const monsterList = ['monster1.png','monster2.png','monster3.png','monster4.png','monster5.png','monster6.png'];
+        const duplicated = [...monsters, ...monsters];
+        const shuffled = duplicated
+            .map(value => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(obj => obj.value);
+        setCards(shuffled);
+        setFlipped([]);
+        setMatched([]);
+        setScore(0);
+    }
 
     return (
     <main className = "container py-4">
