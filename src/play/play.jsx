@@ -1,9 +1,22 @@
 import React from 'react';
 
 export function Play({user}) {
-  return (
+    const[msg, setMsg]= React.useState('...listening');
+
+    React.useEffect(()=>{
+        setInterval(()=>{
+            const names = ['Bob', 'Sue', 'Tim'];
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            const randomCount = Math.floor((Math.random()*100)+1);
+            const newMsg = `${randomName}: ${randomCount}`;
+            setMsg(newMsg);
+        },10000);
+    })
+
+    return (
     <main className = "container py-4">
             {/* <!-- const images = ['monster1.png'] --> */}
+            <div>{msg}</div>
 
             <div className="text-center mb-3 game-controls">
                 <div className="players mb-2">
