@@ -218,6 +218,7 @@ b = await a.json
 [GET] /user
 [GET] /scores
 [GET] /user/route
+There are get, post(Create), put(update), delete, and options(info)
 how to access variables?
 curl https://link gets html
 
@@ -231,3 +232,11 @@ This looks better and is easier to debug
 const r = await fetch('https://quote.cs260.click/')
 const j = await r.json()
 console.log(j)
+
+(200 = :)
+400 = user made mistake
+500 = server made mistake
+
+lds.org redirects to churchofjesuschrist.org
+
+Cache - storing memory
