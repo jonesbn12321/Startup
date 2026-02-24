@@ -1,12 +1,12 @@
 import React from 'react';
 
-export function Login(setUser) {
+export function Login({setUser}) {
     const [name, setName] = React.useState('');
     const [password, setPassword] = React.useState('');
     function loginUser(){
         console.log('login '+name + " "+password);
         localStorage.setItem('user', name, password);
-        setName(name);
+        setUser(name);
     }
 
     function nameChange(e){
