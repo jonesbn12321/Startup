@@ -14,7 +14,7 @@ export function Play({user}) {
     React.useEffect(() => {
         if (cards.length > 0 && matched.length === cards.length) {
             if (score > 3) {
-            saveScore(score);
+            saveWin();
             }
             alert("Game Over!");
         }
@@ -65,12 +65,24 @@ export function Play({user}) {
         }
 
     }
-    async function saveScore(score) {
-        const date = new Date().toLocaleDateString();
-        const newScore = { name: user, score: score, date: date };
+    function saveWin() {
+        let records = [];
+        const recordText = localStorage.getItem('records');
 
-        updateScoresLocal(newScore);
-  }
+        if (recordText) {
+            records = JSON.parse(recordText);
+        }
+        
+        const existingUser = records.find(r => r.name === user);
+
+        if (existingUser) {
+            existingUser.wins += 1;
+        } else {
+            records.push({ name: user, wins: 1 });
+        }
+
+        localStorage.setItem('records', JSON.stringify(records));
+        }
 
   function updateScoresLocal(newScore) {
     let scores = [];

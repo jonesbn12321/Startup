@@ -3,7 +3,7 @@ import React from 'react';
 export function Scores() {
     const [scores, setScores] = React.useState([]);
     React.useEffect(() => {
-        const scoresText = localStorage.getItem('scores');
+        const scoresText = localStorage.getItem('records');
         if (scoresText) {
           setScores(JSON.parse(scoresText));
         }
@@ -14,11 +14,10 @@ export function Scores() {
     if (scores.length) {
         for (const [i, score] of scores.entries()) {
         scoreRows.push(
-            <tr key={i}>
-            <td>{i}</td>
+            <tr key={i+1}>
+            <td>{i+1}</td>
             <td>{score.name.split('@')[0]}</td>
-            <td>{score.score}</td>
-            <td>{score.date}</td>
+            <td>{score.wins}</td>
             </tr>
         );
         }
@@ -38,8 +37,7 @@ export function Scores() {
                     <tr>
                         <th>Game</th>
                         <th>Opponent</th>
-                        <th>Score</th>
-                        <th>Date</th>
+                        <th>Record</th>
                     </tr>
                 </thead>
                 <tbody id = 'scores'>{scoreRows}</tbody>
