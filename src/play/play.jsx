@@ -6,7 +6,8 @@ export function Play({user}) {
     const [flipped, setFlipped] = React.useState([]);
     const [matched, setMatched] = React.useState([]);
     const [score, setScore] = React.useState(0);
-
+    const[match, setMatch] = React.useState(false);
+    const matchSound = React.useRef(new Audio("/successSound.mp3"));
     React.useEffect(()=>{
         initializeGame();
     },[]);
@@ -42,6 +43,12 @@ export function Play({user}) {
                 setMatched([...matched, first, second]);
                 setScore(prev => prev + 1);
                 setFlipped([]);
+                setMatch(true);
+                setTimeout(()=>{
+                    setMatch(false);
+                },1000);
+                matchSound.current.currentTime = 0;
+                matchSound.current.play();
             } else {
             setTimeout(() => {
                 setFlipped([]);
@@ -49,6 +56,7 @@ export function Play({user}) {
             }
         }
     }
+    
     return (
     <main className = "container py-4">
 
@@ -65,12 +73,10 @@ export function Play({user}) {
                     <input className="form-control d-inline-block w-auto" value="--" readOnly />
                 </div>
                 <button className="btn btn-danger" onClick={initializeGame}>Reset</button>
-            </div>
-
-            
-
-    <div>
-      
+            </div>  
+        {match&&(
+            <div className ="match-popup">Match!</div>
+        )};
         <div className="board-container">
             <div className = "board">
                 {cards.map((card, index)=>{
@@ -90,5 +96,4 @@ export function Play({user}) {
                 })}
             </div>
             </div>
-        </div>
         </main>)}
