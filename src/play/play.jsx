@@ -11,6 +11,14 @@ export function Play({user}) {
     React.useEffect(()=>{
         initializeGame();
     },[]);
+    React.useEffect(() => {
+        if (cards.length > 0 && matched.length === cards.length) {
+            if (score > 3) {
+            saveScore(score);
+            }
+            alert("Game Over!");
+        }
+    }, [matched]);
 
     function initializeGame(){
         const monsterList = ['monster1.png','monster2.png','monster3.png','monster4.png','monster5.png','monster6.png'];
@@ -55,7 +63,41 @@ export function Play({user}) {
             }, 800);
             }
         }
+
     }
+    async function saveScore(score) {
+        const date = new Date().toLocaleDateString();
+        const newScore = { name: user, score: score, date: date };
+
+        updateScoresLocal(newScore);
+  }
+
+  function updateScoresLocal(newScore) {
+    let scores = [];
+    const scoresText = localStorage.getItem('scores');
+    if (scoresText) {
+      scores = JSON.parse(scoresText);
+    }
+
+    let found = false;
+    for (const [i, prevScore] of scores.entries()) {
+      if (newScore.score > prevScore.score) {
+        scores.splice(i, 0, newScore);
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      scores.push(newScore);
+    }
+
+    if (scores.length > 10) {
+      scores.length = 10;
+    }
+
+    localStorage.setItem('scores', JSON.stringify(scores));
+  }
     
     return (
     <main className = "container py-4">
@@ -86,7 +128,7 @@ export function Play({user}) {
                         <div key={index} className={`mycard ${isFlipped ? 'flipped' : ''}`}
                             onClick = {()=> handleClick(index)}>
                             <div className = "mycard-inner">
-                                <div className = "mycard-front">?</div>
+                                <div className = "mycard-front"></div>
                                 <div className = "mycard-back">
                                     <img src = {`/${card}`}alt = "monster" />
                                 </div>

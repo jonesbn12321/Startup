@@ -38,8 +38,7 @@
 }
 
 .mycard-front {
-  background: #343a40;
-  color: white;
+  background: #FFD166;
 }
 
 .mycard-back {
@@ -50,6 +49,19 @@
 .mycard-back img {
   width: 80%;
 }
+
+.mycard-front:hover{
+  transform: scale(1.05);
+  background:#FF9F1C;
+}
+.mycard-front:active {
+  transform: scale(0.95);
+}
+
+
+
+
+
 
 /* Match formatting */
 .match-popup {
