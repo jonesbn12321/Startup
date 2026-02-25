@@ -6,9 +6,24 @@ import { Login } from './login/login';
 import { Play } from './play/play';
 import { Scores } from './scores/scores';
 import { Opponents } from './opponents/opponents';
+import{AuthState} from './login/authState';
 
 export default function App() {
   const[user, setUser]= React.useState(localStorage.getItem('user')||null);
+  const [authState, setAuthState] = React.useState(
+    user ? AuthState.Authenticated : AuthState.Unauthenticated
+  );
+  function handleAuthChange(name, state) {
+    setUser(state===AuthState.Authenticated ? name : null);
+    setAuthState(state);
+
+    if (state === AuthState.Authenticated) {
+      localStorage.setItem('user', name);
+    } else {
+      localStorage.removeItem('user');
+    }
+  }
+
 
   return (
     <BrowserRouter>
@@ -26,7 +41,7 @@ export default function App() {
         </header>
       
         <Routes>
-          <Route path='/' element={<Login setUser = {setUser}/>} exact />
+          <Route path='/' element={<Login userName = {user} authState = {authState} onAuthChange={handleAuthChange}/>} exact />
           <Route path='/opponents' element={<Opponents />} />
           <Route path='/scores' element={<Scores />} />
           <Route path='/play' element={<Play user = {user}/>} />
