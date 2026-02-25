@@ -1,7 +1,7 @@
 import React from 'react';
+import './play.css';
 
 export function Play({user}) {
-    const[msg, setMsg]= React.useState('...listening');
     const [cards, setCards] = React.useState([]);
     const [flipped, setFlipped] = React.useState([]);
     const [matched, setMatched] = React.useState([]);
@@ -13,7 +13,7 @@ export function Play({user}) {
 
     function initializeGame(){
         const monsterList = ['monster1.png','monster2.png','monster3.png','monster4.png','monster5.png','monster6.png'];
-        const duplicated = [...monsters, ...monsters];
+        const duplicated = [...monsterList, ...monsterList];
         const shuffled = duplicated
             .map(value => ({ value, sort: Math.random() }))
             .sort((a, b) => a.sort - b.sort)
@@ -70,21 +70,21 @@ export function Play({user}) {
             
 
     <div>
-       <style>
-       
-       </style>
+      
         <div className="board-container">
-            <div className = "row">
+            <div className = "board">
                 {cards.map((card, index)=>{
                     const isFlipped = flipped.includes(index)||matched.includes(index);
 
                     return (
-                        <div key={index} className = "col-3 mb-3 text-center">
-                            <button className = "sqaure" onClick = {()=>handleClick(index)}>
-                                {isFlipped ?(
-                                    <img src ={`/src/${card}`}/>
-                                ):('?')}
-                            </button>
+                        <div key={index} className={`mycard ${isFlipped ? 'flipped' : ''}`}
+                            onClick = {()=> handleClick(index)}>
+                            <div className = "mycard-inner">
+                                <div className = "mycard-front">?</div>
+                                <div className = "mycard-back">
+                                    <img src = {`/${card}`}alt = "monster" />
+                                </div>
+                            </div>
                         </div>
                     );
                 })}

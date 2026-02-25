@@ -25,14 +25,14 @@ export function Login({setUser}) {
           <div className="card p-4 shadow-sm">
               <h1>Welcome!</h1>
               <p>Login to play!</p>
-              <form method = "get" action = "opponents.html">
+              <form onSubmit={(e) => e.preventDefault()}>
                   <div className="mb-3">
                       <label htmlFor = "name" className = "form-label">Name</label>
                       <input type = "text" id = "name" className="form-control" placeholder= "Your name here" onChange = {nameChange}/>
                   </div>
                     <div className="mb-3">
                       <label htmlFor = "password" className = "form-label">Password</label>
-                      <input type = "text" id = "name" className="form-control" placeholder= "Your password here"onChange = {passChange}/>
+                      <input type = "text" id = "password" className="form-control" placeholder= "Your password here"onChange = {passChange}/>
                   </div>
                   
                   <button type="button" onClick = {loginUser}>Log In</button>

@@ -4,12 +4,6 @@
   color: #1E3A5F;
 }
 
-.app{
-  margin: 0;
-  background:linear-gradient(135deg, #F5F7FA, #E8EEF6);
-  color: #1E3A5F;
-}
-
 menu{
   display:flex;
   list-style: none;

@@ -13,7 +13,7 @@ export default function App() {
   return (
     <BrowserRouter>
     
-      <div className="app bg-dark text-light">
+      <div className="app">
         <header>
             <h1>Monster Matching</h1>
             {/* <!-- Navigation Elements to get to each page --> */}
