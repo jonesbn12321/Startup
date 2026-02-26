@@ -8,6 +8,8 @@ export function Play({user}) {
     const [score, setScore] = React.useState(0);
     const[match, setMatch] = React.useState(false);
     const matchSound = React.useRef(new Audio("/successSound.mp3"));
+    const opponent = localStorage.getItem('opponent') || "Waiting...";
+
     React.useEffect(()=>{
         initializeGame();
     },[]);
@@ -119,18 +121,13 @@ export function Play({user}) {
                     <h4>{user} Score: {score}</h4>
                 </div>
                 <div className="players mb-2">
-                    Player:
-                    <span id="player-name"> Player 2</span>
-                </div>
-                <div className="mb-2">
-                    <label>Player 2 Score</label>
-                    <input className="form-control d-inline-block w-auto" value="--" readOnly />
+                    <h4>{opponent} Score: 0</h4>
                 </div>
                 <button className="btn btn-danger" onClick={initializeGame}>Reset</button>
             </div>  
         {match&&(
             <div className ="match-popup">Match!</div>
-        )};
+        )}
         <div className="board-container">
             <div className = "board">
                 {cards.map((card, index)=>{
