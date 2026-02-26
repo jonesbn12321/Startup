@@ -36,8 +36,8 @@ export function Scores() {
                 <thead className = "table-dark">
                     <tr>
                         <th>Game</th>
-                        <th>Opponent</th>
-                        <th>Record</th>
+                        <th>Name</th>
+                        <th>Wins</th>
                     </tr>
                 </thead>
                 <tbody id = 'scores'>{scoreRows}</tbody>

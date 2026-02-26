@@ -242,3 +242,7 @@ console.log(j)
 lds.org redirects to churchofjesuschrist.org
 
 Cache - storing memory
+
+## More Service
+We'll have mostly application/json or image/png
+Use JSON

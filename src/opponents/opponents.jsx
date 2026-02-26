@@ -6,7 +6,7 @@ export function Opponents() {
   const[players, setPlayers]= React.useState([]);
 
   React.useEffect(()=>{
-    const names = ['Alex', 'Brian','Brooklyn','Matthew','Lee','Emma'];
+    const names = ['Alex', 'Bryan','Brooklyn','Matthew','Lee','Emma'];
     const interval=setInterval(()=>{
       const randName = names[Math.floor(Math.random()*names.length)];
       const id = Date.now();
