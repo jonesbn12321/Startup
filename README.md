@@ -101,8 +101,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - Yep! This is a fully functioning game! You can log in, log out, choose an opponent using setInterval, and play a matching game(against yourself, for now)! Usernames are stored in local storage and are transfered across pages so that you know who is playing.
+- [x] **Hooks** - I use useState and useEffect a ton. useState was used a lot when I was declaring variables so that it can remember variables each time it is re-rendered. useEffect is great for initializing my game or ending it whenever all of the cards are matched. This is all shown a ton on the play page, play.jsx. 
 
 ## 🚀 Service deliverable
 
