@@ -246,3 +246,17 @@ Cache - storing memory
 ## More Service
 We'll have mostly application/json or image/png
 Use JSON
+npm install express - makes service possible
+app.get('/cow', noBobs, (req, res)=>{
+    res.send({message: 'M00!'}); - Displays this line
+});
+if this works ? do this
+app.use will do everything
+
+Authentication - who you are
+Authorization - what you can do
+Bcrypt - salt, hash, compare. This'll go in backend service
+Authorization Token - uuid
+cookies - 
+
+
