@@ -263,3 +263,11 @@ uuid - authorization copy. Is it already registered?
 Service folder contains all backend info/code
 When deploy - backend goes to root of project, the rest goes to public and is accessed through middleware
 Backend is hosting frontend code
+
+isntall multer to upload files
+Don't use up too much space, limit file size limits: {fileSize:64000}
+
+## Storage
+use AWS S3, simple storage servcie 
+pedobites of files
+You pay for what you use 50 cents a month per gigabyte you use
