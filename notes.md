@@ -257,6 +257,5 @@ Authentication - who you are
 Authorization - what you can do
 Bcrypt - salt, hash, compare. This'll go in backend service
 Authorization Token - uuid
-cookies - 
-
-
+cookies - -c cookie.txt -b cookie.txt
+uuid - authorization copy. Is it already registered?
