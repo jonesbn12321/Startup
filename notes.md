@@ -259,3 +259,7 @@ Bcrypt - salt, hash, compare. This'll go in backend service
 Authorization Token - uuid
 cookies - -c cookie.txt -b cookie.txt
 uuid - authorization copy. Is it already registered?
+
+Service folder contains all backend info/code
+When deploy - backend goes to root of project, the rest goes to public and is accessed through middleware
+Backend is hosting frontend code
