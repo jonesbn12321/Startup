@@ -272,4 +272,47 @@ use AWS S3, simple storage servcie
 pedobites of files
 You pay for what you use 50 cents a month per gigabyte you use
 
+## DataBase / MongoDB
+
 To add any IP adress you use 0.0.0.0/0
+
+# Store Data: 
+   const house = {
+     name: 'Beachfront views',
+     summary: 'From your bedroom to the beach, no shoes required',
+     property_type: 'Condo',
+     beds: 1,
+   };
+
+   const insertResult = await collection.insertOne(house);
+
+# Query Data:
+collection.find();
+collection.find({beds: { $gte: 2 }});
+collection.find({status: 'open', beds: {$lt: 3} });
+collection.find({$or: [{beds: {$lt: 3}}, {price: {$lt: 1000}}] });
+collection.find({ summary: /(modern|beach)/i });
+
+# Options:
+const query = { property_type: 'Condo', beds: { $lt: 2 } };
+const options = {
+ sort: { score: -1 },
+ limit: 10,
+};
+const cursor = collection.find(query, options);
+const rentals = await cursor.toArray();
+rentals.forEach((i) => console.log(i));
+
+# Update Data: 
+const insertResult = await collection.insertOne(house);
+
+const query = { _id: insertResult.insertedId };
+
+await collection.updateMany(query, { $set: { beds: 2 } });
+
+# Delete Data: 
+const query = { property_type: 'Condo', beds: { $lte: 2 } };
+await collection.deleteMany(query);
+
+const insertResult = await collection.insertOne(house);
+await collection.deleteOne({ _id: insertResult.insertedId });
