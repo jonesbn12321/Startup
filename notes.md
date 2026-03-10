@@ -271,3 +271,5 @@ Don't use up too much space, limit file size limits: {fileSize:64000}
 use AWS S3, simple storage servcie 
 pedobites of files
 You pay for what you use 50 cents a month per gigabyte you use
+
+To add any IP adress you use 0.0.0.0/0
