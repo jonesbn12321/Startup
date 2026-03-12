@@ -1,6 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const bcrypt = require('bcrypt.js');
+const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
 
 const app = express();
@@ -8,12 +8,18 @@ const app = express();
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
 //Middleware
-app.use(express.json);
+app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public'));
 
+const authCookieName = 'token';
+
+let users = [];
+let scores = [];
+
+
 //Test if it works
-app.get('api/test', (req,res)=>{
+app.get('/api/test', (req,res)=>{
     res.send({message: "Backend is working"});
 })
 app.listen(port,()=>{
