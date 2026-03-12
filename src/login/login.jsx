@@ -8,15 +8,28 @@ export function Login({userName, authState, onAuthChange}) {
     const [error, setError]= React.useState('');
     const navigate = useNavigate();
 
-    function login(){
+    async function login(){
         if (!name||!password){
             setError('Fill in all fields');
             return;
         }
-        localStorage.setItem('credentials',JSON.stringify({name, password}));
-        onAuthChange(name, AuthState.Authenticated);
-        navigate("/opponents");
+        const response = await fetch('/api/auth/login',{
+            method: 'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({email: name, password})
+        });
+        if (response.ok) {
+            const user = await response.json();
+            localStorage.setItem('userName', user.email);
+            onAuthChange(user.email, AuthState.Authenticated);
+            navigate('/opponents');
+        } else {
+        setError('Login failed');
+        }
     }
+    
     function logout(){
         onAuthChange(userName,AuthState.Unauthenticated);
         navigate('/');
