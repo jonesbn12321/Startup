@@ -316,3 +316,10 @@ await collection.deleteMany(query);
 
 const insertResult = await collection.insertOne(house);
 await collection.deleteOne({ _id: insertResult.insertedId });
+
+# To debug
+in the root do npm run dev, then in inspect open unauthenticated.jsx
+
+Cookie Parser - adds functionality, reads headers, so that other middleware can do stuff
+
+Express has a default error
