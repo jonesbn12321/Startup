@@ -67,24 +67,26 @@ export function Play({user}) {
         }
 
     }
-    function saveWin() {
-        let records = [];
-        const recordText = localStorage.getItem('records');
 
-        if (recordText) {
-            records = JSON.parse(recordText);
-        }
-        
-        const existingUser = records.find(r => r.name === user);
+    async function saveWin() {
+    const newScore = {
+        name: user,
+        wins: 1,
+    };
 
-        if (existingUser) {
-            existingUser.wins += 1;
-        } else {
-            records.push({ name: user, wins: 1 });
-        }
+    try {
+        const response = await fetch('/api/score', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newScore),
+        });
 
-        localStorage.setItem('records', JSON.stringify(records));
-        }
+        const scores = await response.json();
+        console.log('Updated scores:', scores);
+    } catch (err) {
+        console.error('Failed to save score', err);
+    }
+}
 
   function updateScoresLocal(newScore) {
     let scores = [];
