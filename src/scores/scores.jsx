@@ -3,13 +3,13 @@ import React from 'react';
 export function Scores() {
     const [scores, setScores] = React.useState([]);
 
-    React.useEffect(() => {
+    function loadScores() {
         fetch('/api/scores')
-          .then((response) => response.json())
-          .then((scores) => {
-            setScores(scores);
-          });
-      }, []);
+            .then((response) => response.json())
+            .then((scores) => setScores(scores));
+    }
+
+    React.useEffect(loadScores, []);
 
     //Create an array with React  
     const scoreRows = [];
@@ -19,7 +19,7 @@ export function Scores() {
             <tr key={i+1}>
             <td>{i+1}</td>
             <td>{score.name.split('@')[0]}</td>
-            <td>{score.wins}</td>
+            <td>{score.score}</td>
             </tr>
         );
         }
