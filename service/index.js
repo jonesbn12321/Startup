@@ -56,74 +56,47 @@ apiRouter.delete('/auth/logout', async (req, res) => {
   res.status(204).end();//Complete but no content
 });
 
+// Middleware to verify that the user is authorized to call an endpoint
+const verifyAuth = async (req, res, next) => {
+  const user = await findUser('token', req.cookies[authCookieName]);
+  if (user) {
+    next();
+  } else {
+    res.status(401).send({ msg: 'Unauthorized' });
+  }
+};
 
+// GetScores
+apiRouter.get('/scores', verifyAuth, (_req, res) => {
+  res.send(scores);
+});
 
+// SubmitScore
+apiRouter.post('/score', verifyAuth, (req, res) => {
+  scores = updateScores(req.body);
+  res.send(scores);
+});
 
+function updateScores(newScore) {
+  let found = false;
+  for (const [i, prevScore] of scores.entries()) {
+    if (newScore.score > prevScore.score) {
+      scores.splice(i, 0, newScore);
+      found = true;
+      break;
+    }
+  }
 
+  if (!found) {
+    scores.push(newScore);
+  }
 
+  if (scores.length > 10) {
+    scores.length = 10;
+  }
 
-// //SIMON SERVICE EXAMPLE
-
-// // Middleware to verify that the user is authorized to call an endpoint
-// const verifyAuth = async (req, res, next) => {
-//   const user = await findUser('token', req.cookies[authCookieName]);
-//   if (user) {
-//     next();
-//   } else {
-//     res.status(401).send({ msg: 'Unauthorized' });
-//   }
-// };
-
-// // GetScores
-// apiRouter.get('/scores', verifyAuth, (_req, res) => {
-//   res.send(scores);
-// });
-
-// // SubmitScore
-// apiRouter.post('/score', verifyAuth, (req, res) => {
-//   scores = updateScores(req.body);
-//   res.send(scores);
-// });
-
-// // Default error handler
-// app.use(function (err, req, res, next) {
-//   res.status(500).send({ type: err.name, message: err.message });
-// });
-
-// // Return the application's default page if the path is unknown
-// app.use((_req, res) => {
-//   res.sendFile('index.html', { root: 'public' });
-// });
-
-// // updateScores considers a new score for inclusion in the high scores.
-// function updateScores(newScore) {
-//   let found = false;
-//   for (const [i, prevScore] of scores.entries()) {
-//     if (newScore.score > prevScore.score) {
-//       scores.splice(i, 0, newScore);
-//       found = true;
-//       break;
-//     }
-//   }
-
-//   if (!found) {
-//     scores.push(newScore);
-//   }
-
-//   if (scores.length > 10) {
-//     scores.length = 10;
-//   }
-
-//   return scores;
-// }
-
-
-
-// app.listen(port, () => {
-//   console.log(`Listening on port ${port}`);
-// });
-
-
+  return scores;
+}
 
 async function createUser(email, password) {
   const passwordHash = await bcrypt.hash(password, 10);
@@ -148,8 +121,21 @@ async function findUser(field, value) {
 function setAuthCookie(res, authToken) {
   res.cookie(authCookieName, authToken, {
     maxAge: 1000 * 60 * 60 * 24 * 365,
-    secure: true,
+    secure: false,
     httpOnly: true,
     sameSite: 'strict',
   });
 }
+
+// Default error handler
+app.use(function (err, req, res, next) {
+  res.status(500).send({ type: err.name, message: err.message });
+});
+
+app.use((_req, res) => {
+  res.sendFile('index.html', { root: 'public' });
+});
+
+app.listen(port, () => {
+  console.log(`Server listening on http://localhost:${port}`);
+});

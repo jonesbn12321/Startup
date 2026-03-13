@@ -29,8 +29,36 @@ export function Login({userName, authState, onAuthChange}) {
         setError('Login failed');
         }
     }
+
+    async function createUser() {
+        if (!name || !password) {
+            setError('Fill in all fields');
+            return;
+        }
+
+        const response = await fetch('/api/auth/create', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: name, password })
+        });
+
+        if (response.ok) {
+            const user = await response.json();
+            localStorage.setItem('userName', user.email);
+            onAuthChange(user.email, AuthState.Authenticated);
+            navigate('/opponents');
+        } else {
+            setError('User already exists');
+        }
+    }
     
-    function logout(){
+    async function logout(){
+        await fetch('/api/auth/logout',{
+            method: 'DELETE'
+        });
+        localStorage.removeItem('userName');
         onAuthChange(userName,AuthState.Unauthenticated);
         navigate('/');
     }    
@@ -60,7 +88,7 @@ export function Login({userName, authState, onAuthChange}) {
 
                   <div className = "d-flex justify-content gap-3">
                     <button className = "button" onClick = {login}>Log In</button>
-                    <button className = "button" onClick = {login}>Create</button>
+                    <button className = "button" onClick = {createUser}>Create</button>
                   </div>
           </div>
 
