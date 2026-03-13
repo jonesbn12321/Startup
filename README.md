@@ -108,12 +108,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Supports registration, login, logout, and restricted endpoint** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - I have a backend server that uses express! The server listens on a local host
+- [x] **Static middleware for frontend** - Yep! I use the express middleware and cookie parser. 
+- [x] **Calls to third party endpoints** - Calls a 3rd party endpoint to add a quote to the scores page
+- [x] **Backend service endpoints** - This is all of my create user, login, logout, scores, etc. Anything that is a /api. 
+- [x] **Frontend calls service endpoints** - There are many pages that call the service endpoints, like play saving the scores and the scores page getting them and displaying them all. 
+- [x] **Supports registration, login, logout, and restricted endpoint** - I have endpoints that complete these all, and you need to be logged in in order to access the scores.
 
 ## 🚀 DB deliverable
 
