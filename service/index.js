@@ -2,6 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
+const path = require('path');
 
 const app = express();
 
@@ -10,7 +11,7 @@ const port = process.argv.length > 2 ? process.argv[2] : 3000;
 //Middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '..')));
 
 const authCookieName = 'token';
 
@@ -133,7 +134,7 @@ app.use(function (err, req, res, next) {
 });
 
 app.use((_req, res) => {
-  res.sendFile('index.html', { root: 'public' });
+  res.sendFile(path.join(__dirname, '../index.html'));
 });
 
 app.listen(port, () => {
