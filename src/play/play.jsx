@@ -13,12 +13,17 @@ export function Play({user}) {
     React.useEffect(()=>{
         initializeGame();
     },[]);
-    React.useEffect(() => {
+   React.useEffect(() => {
         if (cards.length > 0 && matched.length === cards.length) {
-            if (score > 3) {
-            saveWin();
-            }
-            alert("Game Over!");
+            // Wait a short moment to allow the last flip animation to finish
+            const timeout = setTimeout(() => {
+                if (score > 3) {
+                    saveWin();
+                }
+                alert("Game Over!");
+            }, 500); // 500ms matches your card flip timing
+
+            return () => clearTimeout(timeout); // cleanup if component unmounts
         }
     }, [matched]);
 

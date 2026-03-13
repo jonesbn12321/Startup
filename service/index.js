@@ -11,7 +11,8 @@ const port = process.argv.length > 2 ? process.argv[2] : 4000;
 //Middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '..')));
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 const authCookieName = 'token';
 
@@ -125,7 +126,7 @@ app.use(function (err, req, res, next) {
 });
 
 app.use((_req, res) => {
-  res.sendFile(path.join(__dirname, '../index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(port, () => {
