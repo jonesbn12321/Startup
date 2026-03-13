@@ -71,7 +71,7 @@ export function Play({user}) {
     async function saveWin() {
     const newScore = {
         name: user,
-        wins: 1,
+        score: 1,
     };
 
     try {

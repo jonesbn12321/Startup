@@ -8,13 +8,24 @@
 
         <link id="favicon" rel="icon" />
          <script>
-            const seed = Math.random().toString(36).substring(7);
-            document.addEventListener("DOMContentLoaded", () => {
             const favicon = document.getElementById("favicon");
             if (favicon) {
                 favicon.href = `https://robohash.org/${seed}?set=set2&size=64x64`;
             }
-            });
+
+            // THIRD PARTY API CALL USING FETCH
+            try {
+                const response = await fetch(`https://robohash.org/${seed}?set=set2`);
+                const imgUrl = response.url;
+
+                const img = document.createElement("img");
+                img.src = imgUrl;
+                img.width = 120;
+
+                document.body.appendChild(img);
+            } catch (err) {
+                console.error("Failed to load monster", err);
+            }
         </script>
 
     </head>
@@ -23,6 +34,4 @@
         <div id="root"></div>
         <script type="module" src="/index.jsx"></script>
     </body>
-    
-  
 </html>
