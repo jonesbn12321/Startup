@@ -325,3 +325,24 @@ Cookie Parser - adds functionality, reads headers, so that other middleware can 
 Express has a default error
 
 ## Testing
+#### Back End
+run the tests anytime that you change code using 
+Install Jest, it'll automatically run tests whenever you save the code
+
+in package.json make sure that scripts test is "jest"
+npm install -D jest supertest
+
+
+Tests are on testing slides
+
+Coverage - checkmark test shows everything that was run during the test
+
+
+#### Front End
+Playwright - npm init playwright@latest
+npx playwright install --with-deps chromium in the root
+
+Launches vite and chrome - will time out agter 5 seconds if something goes wrong
+scripts "dev": "vite"
+"test":"playwright test"
+
