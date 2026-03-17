@@ -276,7 +276,7 @@ You pay for what you use 50 cents a month per gigabyte you use
 
 To add any IP adress you use 0.0.0.0/0
 
-# Store Data: 
+### Store Data: 
    const house = {
      name: 'Beachfront views',
      summary: 'From your bedroom to the beach, no shoes required',
@@ -286,14 +286,14 @@ To add any IP adress you use 0.0.0.0/0
 
    const insertResult = await collection.insertOne(house);
 
-# Query Data:
+### Query Data:
 collection.find();
 collection.find({beds: { $gte: 2 }});
 collection.find({status: 'open', beds: {$lt: 3} });
 collection.find({$or: [{beds: {$lt: 3}}, {price: {$lt: 1000}}] });
 collection.find({ summary: /(modern|beach)/i });
 
-# Options:
+### Options:
 const query = { property_type: 'Condo', beds: { $lt: 2 } };
 const options = {
  sort: { score: -1 },
@@ -303,23 +303,25 @@ const cursor = collection.find(query, options);
 const rentals = await cursor.toArray();
 rentals.forEach((i) => console.log(i));
 
-# Update Data: 
+### Update Data: 
 const insertResult = await collection.insertOne(house);
 
 const query = { _id: insertResult.insertedId };
 
 await collection.updateMany(query, { $set: { beds: 2 } });
 
-# Delete Data: 
+### Delete Data: 
 const query = { property_type: 'Condo', beds: { $lte: 2 } };
 await collection.deleteMany(query);
 
 const insertResult = await collection.insertOne(house);
 await collection.deleteOne({ _id: insertResult.insertedId });
 
-# To debug
+### To debug
 in the root do npm run dev, then in inspect open unauthenticated.jsx
 
 Cookie Parser - adds functionality, reads headers, so that other middleware can do stuff
 
 Express has a default error
+
+## Testing
