@@ -346,3 +346,14 @@ Launches vite and chrome - will time out agter 5 seconds if something goes wrong
 scripts "dev": "vite"
 "test":"playwright test"
 
+## Web Socket
+Upgrade of HTTP, any side can send data at any time
+npm install ws
+
+ping and pong make sure that it stays alive
+
+Run and debug the example by pressing F5 for the file service/index.js. You may need to select Node as the debugger the first time you run.
+Run npm run dev from a console window in the example root directory.
+Open multiple browser windows and point them to http://localhost:5137.
+Provide a user name and start chatting.
+Use the browser's debugger to view the WebSocket communication.
