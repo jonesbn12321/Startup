@@ -357,3 +357,5 @@ Run npm run dev from a console window in the example root directory.
 Open multiple browser windows and point them to http://localhost:5137.
 Provide a user name and start chatting.
 Use the browser's debugger to view the WebSocket communication.
+
+502 error - can't find service
