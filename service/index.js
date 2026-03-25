@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
 const path = require('path');
 
+const {userCollection, scoreCollection} = require('./db');
+
 const app = express();
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -69,7 +71,13 @@ const verifyAuth = async (req, res, next) => {
 };
 
 // GetScores
-apiRouter.get('/scores', verifyAuth, (_req, res) => {
+apiRouter.get('/scores', verifyAuth, async (_req, res) => {
+  const scores = await scoreCollection
+  .find()
+  .sort({score: -1})
+  .limit(10)
+  .toArray();
+
   res.send(scores);
 });
 
@@ -99,7 +107,7 @@ async function createUser(email, password) {
     password: passwordHash,
     token: uuid.v4(),
   };
-  users.push(user);
+  await userCollection.insertOne(user);
 
   return user;
 }
@@ -107,7 +115,7 @@ async function createUser(email, password) {
 async function findUser(field, value) {
   if (!value) return null;
 
-  return users.find((u) => u[field] === value);
+  return await userCollection.findOne({[field]:value});
 }
 
 // setAuthCookie in the HTTP response
