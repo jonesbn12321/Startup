@@ -3,24 +3,28 @@ const config = require('./dbConfig.json');
 
 const client = new MongoClient(config.mongoUri);
 
-const db = client.db('startup');
-const userCollection = db.collection('user');
-const scoreCollection = db.collection('score');
+let db;
+let userCollection;
+let scoreCollection;
 
-// Test the connection and exit the process if it fails
-async function testConnection() {
+async function initDb() {
   try {
     await client.connect();
-    await db.command({ ping: 1 });
-    console.log(`Connect to database`);
-  } catch (ex) {
-    console.log(`Unable to connect to database because ${ex.message}`);
+    db = client.db('startup');
+    userCollection = db.collection('user');
+    scoreCollection = db.collection('score');
+    console.log("Connected to database");
+  } catch (err) {
+    console.error("Database connection failed:", err.message);
     process.exit(1);
   }
 }
 
-testConnection();
-module.exports = {userCollection, scoreCollection};
-console.log("URI:", config.mongoUri);
+initDb();
+
+module.exports = { 
+  get userCollection() { return userCollection; },
+  get scoreCollection() { return scoreCollection; }
+};
 
 
