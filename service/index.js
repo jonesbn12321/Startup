@@ -1,3 +1,4 @@
+const{ MongoClient }= require('mongodb');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
@@ -23,18 +24,24 @@ app.use(`/api`, apiRouter);
 
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
+  console.log("begin of create");
+
   if (await findUser('email', req.body.email)) {
     res.status(409).send({ msg: 'Existing user' });
   } else {
+    console.log("in the middle");
+
     const user = await createUser(req.body.email, req.body.password);
 
     setAuthCookie(res, user.token);
     res.send({ email: user.email });
   }
+    console.log("end of create");
 });
 
 // GetAuth login an existing user
 apiRouter.post('/auth/login', async (req, res) => {
+  console.log("begin of login");
   const user = await findUser('email', req.body.email);
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {
@@ -45,6 +52,8 @@ apiRouter.post('/auth/login', async (req, res) => {
     }
   }
   res.status(401).send({ msg: 'Unauthorized' });
+  console.log("end of login");
+
 });
 
 // DeleteAuth logout a user

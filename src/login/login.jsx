@@ -22,7 +22,13 @@ export function Login({userName, authState, onAuthChange}) {
             body: JSON.stringify({email: name, password})
         });
 
-        const data = await response.json();
+        let data;
+        try {
+        data = await response.json();
+        } catch (err) {
+        setError('Server error');
+        return;
+        }
         if (response.ok) {
             localStorage.setItem('userName', data.email);
             onAuthChange(data.email, AuthState.Authenticated);
@@ -46,8 +52,13 @@ export function Login({userName, authState, onAuthChange}) {
             body: JSON.stringify({ email: name, password })
         });
 
-        const data = await response.json();
-
+        let data;
+        try {
+        data = await response.json();
+        } catch (err) {
+        setError('Server error');
+        return;
+        }
         if (response.ok) {
             localStorage.setItem('userName', data.email);
             onAuthChange(data.email, AuthState.Authenticated);

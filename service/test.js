@@ -11,7 +11,6 @@ const collection = db.collection('house');
 async function main() {
   try {
     // Test that you can connect to the database
-    await client.connect();
     await db.command({ ping: 1 });
     console.log(`DB connected to ${config.hostname}`);
   } catch (ex) {
