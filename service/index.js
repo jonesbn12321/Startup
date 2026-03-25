@@ -18,9 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const authCookieName = 'token';
 
-let users = [];
-let scores = [];
-
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
@@ -82,22 +79,29 @@ apiRouter.get('/scores', verifyAuth, async (_req, res) => {
 });
 
 // SubmitScore
-apiRouter.post('/score', verifyAuth, (req, res) => {
-  scores = updateScores(req.body);
-  res.send(scores);
-});
+apiRouter.post('/score', verifyAuth, async(req, res) => {
+  const {name} = req.body;
 
-function updateScores(newScore) {
-  const existing = scores.find((s) => s.name === newScore.name);
+  const existing = await scoreCollection.findOne({name});
 
-  if (existing) {
-    existing.score += 1;
-  } else {
-    scores.push({ ...newScore, score: 1 });
+  if(existing){
+    await scoreCollection.updateOne(
+      {name},
+      {$inc:{score:1}}
+    );
+  }
+  else{
+    await scoreCollection.insertOne({name, score:1});
   }
 
-  return scores;
-}
+  const scores = await scoreCollection
+  .find()
+  .sort({score:-1})
+  .limit(10)
+  .toArray();
+  res.send(scores);
+
+});
 
 async function createUser(email, password) {
   const passwordHash = await bcrypt.hash(password, 10);
