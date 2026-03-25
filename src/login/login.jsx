@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import{AuthState} from './authState';
 
-export function Login({userName, authState, onAuthChange}) {
+export function Login({user, authState, onAuthChange}) {
     const [name, setName] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [error, setError]= React.useState('');
@@ -31,7 +31,7 @@ export function Login({userName, authState, onAuthChange}) {
         return;
         }
         if (response.ok) {
-            localStorage.setItem('userName', data.email);
+            localStorage.setItem('user', data.email);
             onAuthChange(data.email, AuthState.Authenticated);
             navigate('/opponents');
         } else {
@@ -61,7 +61,7 @@ export function Login({userName, authState, onAuthChange}) {
         return;
         }
         if (response.ok) {
-            localStorage.setItem('userName', data.email);
+            localStorage.setItem('user', data.email);
             onAuthChange(data.email, AuthState.Authenticated);
             navigate('/opponents');
         } else {
@@ -73,7 +73,7 @@ export function Login({userName, authState, onAuthChange}) {
         await fetch('/api/auth/logout',{
             method: 'DELETE'
         });
-        localStorage.removeItem('userName');
+        localStorage.removeItem('user');
         onAuthChange('',AuthState.Unauthenticated);
         navigate('/');
     }    
@@ -82,7 +82,7 @@ export function Login({userName, authState, onAuthChange}) {
     <main className = "container py-4">
         {authState===AuthState.Authenticated ?(
             <div className = "card p-4 shadow-sm text-center">
-                <h2>Welcome {userName}!</h2>
+                <h2>Welcome {user}!</h2>
                 <button className = "btn btn-danger mt-3" onClick = {logout}>Logout</button>
             </div>
         ):(
