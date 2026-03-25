@@ -13,6 +13,7 @@ export function Login({userName, authState, onAuthChange}) {
             setError('Fill in all fields');
             return;
         }
+
         const response = await fetch('/api/auth/login',{
             method: 'POST',
             headers:{
@@ -20,10 +21,11 @@ export function Login({userName, authState, onAuthChange}) {
             },
             body: JSON.stringify({email: name, password})
         });
+
+        const data = await response.json();
         if (response.ok) {
-            const user = await response.json();
-            localStorage.setItem('userName', user.email);
-            onAuthChange(user.email, AuthState.Authenticated);
+            localStorage.setItem('userName', data.email);
+            onAuthChange(data.email, AuthState.Authenticated);
             navigate('/opponents');
         } else {
         setError('Login failed');
@@ -44,10 +46,11 @@ export function Login({userName, authState, onAuthChange}) {
             body: JSON.stringify({ email: name, password })
         });
 
+        const data = await response.json();
+
         if (response.ok) {
-            const user = await response.json();
-            localStorage.setItem('userName', user.email);
-            onAuthChange(user.email, AuthState.Authenticated);
+            localStorage.setItem('userName', data.email);
+            onAuthChange(data.email, AuthState.Authenticated);
             navigate('/opponents');
         } else {
             setError('User already exists');
@@ -59,7 +62,7 @@ export function Login({userName, authState, onAuthChange}) {
             method: 'DELETE'
         });
         localStorage.removeItem('userName');
-        onAuthChange(userName,AuthState.Unauthenticated);
+        onAuthChange('',AuthState.Unauthenticated);
         navigate('/');
     }    
 
