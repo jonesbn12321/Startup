@@ -82,7 +82,7 @@ export function Login({user, authState, onAuthChange}) {
     <main className = "container py-4">
         {authState===AuthState.Authenticated ?(
             <div className = "card p-4 shadow-sm text-center">
-                <h2>Welcome {user}!</h2>
+                <h2>Welcome{user}!</h2>
                 <button className = "btn btn-danger mt-3" onClick = {logout}>Logout</button>
             </div>
         ):(

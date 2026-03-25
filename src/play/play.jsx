@@ -8,6 +8,7 @@ export function Play({user}) {
     const [score, setScore] = React.useState(0);
     const[match, setMatch] = React.useState(false);
     const matchSound = React.useRef(new Audio("/successSound.mp3"));
+    const opponent = localStorage.getItem('opponent') || "Waiting...";
 
     React.useEffect(()=>{
         initializeGame();
