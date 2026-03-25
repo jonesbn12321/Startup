@@ -128,7 +128,6 @@ function setAuthCookie(res, authToken) {
     maxAge: 1000 * 60 * 60 * 24 * 365,
     secure: false,
     httpOnly: true,
-    sameSite: 'strict',
   });
 }
 
