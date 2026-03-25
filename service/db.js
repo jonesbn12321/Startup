@@ -21,5 +21,6 @@ async function testConnection() {
 
 testConnection();
 module.exports = {userCollection, scoreCollection};
+console.log("URI:", config.mongoUri);
 
 
