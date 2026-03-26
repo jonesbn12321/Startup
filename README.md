@@ -40,10 +40,9 @@ sequenceDiagram
 ### Key features
 
 - Secure login
-- Ability to choose an opponent
+- Active list of other players
 - Fun, interactive memory game
-- Ability to play against an opponent in real time
-- Record from each game played displayed
+- Count of total completions stored
 
 ### Technologies
 
@@ -54,7 +53,7 @@ I am going to use the required technologies in the following ways.
 - **React** - This is how I will make the game interactive, enabling users to flip cards. It will also keep track of the scores. 
 - **Service** - This is how the website will save the game results and send information between the players. 
 - **DB/Login** - This will store the user accounts and information such as scores. When users login, their scores will be saved so that they can view them later.
-- **WebSocket** - Enable 2 browsers to talk to each other through the server, this will enable two people to play together at the same time.
+- **WebSocket** - Enable 2 browsers to talk to each other through the server, this will let users see who else is actively playing the game and when they complete a board. 
 
 ## 🚀 AWS deliverable
 

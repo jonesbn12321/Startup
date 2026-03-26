@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
 import './play.css';
 
 export function Play({user}) {
@@ -147,7 +148,6 @@ export function Play({user}) {
                     );
                 })}
             </div>
-            </div>
-            {/*<NavLink className={({ isActive }) => isActive ? "nav-button active" : "nav-button"} to="/play">Play!</NavLink> */}
-            
+        </div>   
+         
         </main>)}

@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import './opponents.css';
 
 
 export function Opponents() {
@@ -32,13 +33,18 @@ export function Opponents() {
               ) : (
                 <ul className="list-unstyled">
                   {players.map(player => (
-                    <li key={player.id}>
+                    <li key={player.id} className = "player-item">
                       <img src={player.avatar} className="monster-icon" />
-                      {player.name}
+                      <span>{player.name}</span>
                     </li>
                   ))}
                 </ul>
               )}
+            </div>
+            <div className="text-center mt-4">
+              <NavLink to="/play" className="play-btn">
+                Start Game!
+              </NavLink>
             </div>
         </main>    
   );
