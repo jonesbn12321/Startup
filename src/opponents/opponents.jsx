@@ -26,17 +26,15 @@ export function Opponents() {
   return (
     <main className= "container py-4">
             <div className="card p-4 shadow-sm">
-                <h1>Available Opponents</h1>
+                <h1>Active Players</h1>
                 {players.length === 0 ? (
                 <p>Searching for players...</p>
               ) : (
                 <ul className="list-unstyled">
                   {players.map(player => (
                     <li key={player.id}>
-                      <NavLink className="nav-button" to="/play"onClick={() => localStorage.setItem('opponent', player.name)}>
-                        <img src={player.avatar} className="monster-icon" />
-                        {player.name}
-                      </NavLink>
+                      <img src={player.avatar} className="monster-icon" />
+                      {player.name}
                     </li>
                   ))}
                 </ul>

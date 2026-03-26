@@ -124,9 +124,6 @@ export function Play({user}) {
                 <div className="players mb-2">
                     <h4>{user} Score: {score}</h4>
                 </div>
-                <div className="players mb-2">
-                    <h4>{opponent} Score: 0</h4>
-                </div>
                 <button className="btn btn-danger" onClick={initializeGame}>Reset</button>
             </div>  
         {match&&(
@@ -151,4 +148,6 @@ export function Play({user}) {
                 })}
             </div>
             </div>
+            {/*<NavLink className={({ isActive }) => isActive ? "nav-button active" : "nav-button"} to="/play">Play!</NavLink> */}
+            
         </main>)}
