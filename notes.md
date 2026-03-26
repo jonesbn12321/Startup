@@ -359,3 +359,10 @@ Provide a user name and start chatting.
 Use the browser's debugger to view the WebSocket communication.
 
 502 error - can't find service
+
+## Type Script
+Let's you determine which varialbe type something is 
+enum lets you declare your own
+
+Type coercion
+node -v = make sure I'm on 24
