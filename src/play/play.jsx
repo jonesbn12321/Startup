@@ -84,6 +84,7 @@ export function Play({user}) {
         const response = await fetch('/api/score', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify(newScore),
         });
 

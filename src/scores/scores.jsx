@@ -5,7 +5,7 @@ export function Scores() {
   const [quote, setQuote] = React.useState('');
 
   React.useEffect(() => {
-    fetch('/api/scores')
+    fetch('/api/scores',{credentials:'include'})
       .then(res => {
         if (!res.ok) throw new Error(`Scores fetch failed: ${res.status}`);
         return res.json();

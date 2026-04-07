@@ -3,7 +3,7 @@ const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
-const db = client.db('simon');
+const db = client.db('startup');
 const userCollection = db.collection('user');
 const scoreCollection = db.collection('score');
 
@@ -39,11 +39,15 @@ async function updateUserRemoveAuth(user) {
 }
 
 async function addScore(score) {
-  return scoreCollection.insertOne(score);
+  return scoreCollection.updateOne(
+    { name: score.name },     // find user
+    { $inc: { score: 1 } },   // increment score
+    { upsert: true }          // create if doesn't exist
+  );
 }
 
 function getHighScores() {
-  const query = { score: { $gt: 0, $lt: 900 } };
+  const query = {};
   const options = {
     sort: { score: -1 },
     limit: 10,
@@ -61,9 +65,3 @@ module.exports = {
   addScore,
   getHighScores,
 };
-
-
-//define get and set in db.jd
-//Call funcyion in index.js
-
-
