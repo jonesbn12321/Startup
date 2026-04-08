@@ -125,8 +125,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [x] **Backend listens for WebSocket connection** - Peer proxy is fully implemented and listens for the connection
+- [x] **Frontend makes WebSocket connection** - the react connects to the websocket, and stays connected. 
+- [x] **Data sent over WebSocket connection** - Each tab open sends and recieves when someone new joins. Once someone new logs in, you can see it on the opponents page.
+- [x] **WebSocket data displayed** - You can see all of the connected players when you look at active opponents
+- [x] **Application is fully functional** - Yep! You can play a matching game and compare your scores to other people who have played. 
