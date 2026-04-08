@@ -22,8 +22,6 @@ export function Opponents() {
         name:username,
         avatar: avatar
       }));
-
-      setPlayers([{name:username, avatar}]);
     };
     ws.onmessage= event=>{
       const data = JSON.parse(event.data);
