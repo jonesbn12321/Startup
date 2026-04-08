@@ -5,24 +5,51 @@ import './opponents.css';
 
 export function Opponents() {
   const[players, setPlayers]= React.useState([]);
+  const [socket, setSocket]=React.useState(null);
 
   React.useEffect(()=>{
-    const names = ['Alex', 'Bryan','Brooklyn','Matthew','Lee','Emma'];
-    const interval=setInterval(()=>{
-      const randName = names[Math.floor(Math.random()*names.length)];
-      const id = Date.now();
+    const ws = new WebSocket("ws://localhost:3000");
 
-      const monsterNumber = Math.floor(Math.random() * 6) + 1;
-      const monsterImage = `monster${monsterNumber}.png`;
+    const username = "You";
+    const num = Math.floor(Math.random()*6)+1;
+    const avatar = `monster${num}.png`;
 
-      setPlayers(prev =>{
-        if(prev.find(p=>p.name===randName)) return prev;
-        return [...prev, {id, name: randName, avatar:monsterImage}];
-      });
-    },3000);
+    ws.onopen = () =>{
+      console.log("Connected");
 
-      return ()=>clearInterval(interval);
-    })
+      ws.send(JSON.stringify({
+        type:"player_join",
+        name:username,
+        avatar: avatar
+      }));
+
+      setPlayers([{name:username, avatar}]);
+      ws.onmessage= event=>{
+        const data = JSON.parse(event.data);
+
+        if(data.type === "player_join"){
+          setPlayers(prev=>{
+            if(prev.find(p=>p.name === data.name)) return prev;
+            return[...prev, data];
+          })
+        }
+        if(data.type === "player_leave"){
+          setPlayers(prev=>
+            prev.filter(p=>p.name !== data.name)
+          );
+        }
+      }
+    };
+
+    setSocket(ws);
+    return()=>{
+      ws.send(JSON.stringify({
+        type:"player_leave",
+        name:username
+      }));
+      ws.close();
+    }
+    },[])
 
   return (
     <main className= "container py-4">
