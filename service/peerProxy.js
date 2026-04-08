@@ -11,6 +11,7 @@ function peerProxy(httpServer) {
 
     // Forward messages to everyone except the sender
     socket.on('message', (raw)=>{
+      const data = JSON.parse(raw);
       if(data.type ==="player_join"){
         players.set(data.name, {name:data.name, avatar:data.avatar});
         socket.send(JSON.stringify({

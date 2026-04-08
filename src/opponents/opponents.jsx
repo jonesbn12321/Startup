@@ -27,7 +27,9 @@ export function Opponents() {
     };
     ws.onmessage= event=>{
       const data = JSON.parse(event.data);
-
+      if(data.type === "player_list"){
+        setPlayers(data.players);
+      }
       if(data.type === "player_join"){
         setPlayers(prev=>{
           if(prev.find(p=>p.name === data.name)) return prev;
@@ -62,7 +64,7 @@ export function Opponents() {
               ) : (
                 <ul className="list-unstyled">
                   {players.map(player => (
-                    <li key={player.id} className = "player-item">
+                    <li key={player.name} className = "player-item">
                       <img src={player.avatar} className="monster-icon" />
                       <span>{player.name}</span>
                     </li>
