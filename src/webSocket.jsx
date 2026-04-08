@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useRef } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const WSContext = createContext(null);
 
@@ -6,7 +6,8 @@ export function WSProvider({ children }) {
   const [ws, setWS] = useState(null);
 
   useEffect(() => {
-    const socket = new WebSocket("ws://localhost:3000");
+    
+    const socket = new WebSocket("wss://brooklyn-jones.click");
     setWS(socket);
 
     return () => {

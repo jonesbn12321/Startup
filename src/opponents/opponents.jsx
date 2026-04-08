@@ -3,51 +3,71 @@ import {NavLink} from 'react-router-dom';
 import './opponents.css';
 import{useWS} from '../webSocket';
 
-
-
 export function Opponents() {
   const[players, setPlayers]= React.useState([]);
   const ws = useWS();
 
   React.useEffect(() => {
-    if (!ws) return;
+  if (!ws) return;
 
-    const username = localStorage.getItem("user")?.split("@")[0];
-    const num = Math.floor(Math.random() * 6) + 1;
-    const avatar = `monster${num}.png`;
+  const username = localStorage.getItem("user")?.split("@")[0];
+  const num = Math.floor(Math.random() * 6) + 1;
+  const avatar = `monster${num}.png`;
 
-    ws.onopen = () => {
-      ws.send(JSON.stringify({
+  const sendJoin = () => {
+    ws.send(
+      JSON.stringify({
         type: "player_join",
         name: username,
-        avatar
-      }));
-    };
-    
-    ws.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-       if (data.type === "player_list") {
-        setPlayers(data.players);
-      }
+        avatar,
+      })
+    );
+  };
 
-      if (data.type === "player_join") {
-        setPlayers(prev => {
-          if (prev.find(p => p.name === data.name)) return prev;
-          return [...prev, data];
-        });
-      }
+  if (ws.readyState === WebSocket.OPEN) {
+    sendJoin();
+  } else {
+    ws.onopen = sendJoin;
+  }
 
-      if (data.type === "player_leave") {
-        setPlayers(prev => prev.filter(p => p.name !== data.name));
-      }
-    };
-    return () => {
-      ws.send(JSON.stringify({
-        type: "player_leave",
-        name: username
-      }));
-    };
-  }, [ws]);
+  ws.onmessage = async (event) => {
+    let message;
+    if (event.data instanceof Blob) {
+      message = await event.data.text();
+    } else {
+      message = event.data;
+    }
+    const data = JSON.parse(message);
+
+    if (data.type === "player_list") {
+      setPlayers(data.players);
+    }
+
+    if (data.type === "player_join") {
+      setPlayers((prev) => {
+        if (prev.find((p) => p.name === data.name)) return prev;
+        return [...prev, data];
+      });
+    }
+
+    if (data.type === "player_leave") {
+      setPlayers((prev) =>
+        prev.filter((p) => p.name !== data.name)
+      );
+    }
+  };
+
+  return () => {
+    if (ws.readyState === WebSocket.OPEN) {
+      ws.send(
+        JSON.stringify({
+          type: "player_leave",
+          name: username,
+        })
+      );
+    }
+  };
+}, [ws]);
 
   return (
     <main className= "container py-4">
