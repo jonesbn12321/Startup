@@ -10,7 +10,7 @@ export function Opponents() {
   React.useEffect(()=>{
     const ws = new WebSocket("ws://localhost:3000");
 
-    const username = "You";
+    const username = localStorage.getItem("user") || "Guest";
     const num = Math.floor(Math.random()*6)+1;
     const avatar = `monster${num}.png`;
 
@@ -24,22 +24,24 @@ export function Opponents() {
       }));
 
       setPlayers([{name:username, avatar}]);
-      ws.onmessage= event=>{
-        const data = JSON.parse(event.data);
-
-        if(data.type === "player_join"){
-          setPlayers(prev=>{
-            if(prev.find(p=>p.name === data.name)) return prev;
-            return[...prev, data];
-          })
-        }
-        if(data.type === "player_leave"){
-          setPlayers(prev=>
-            prev.filter(p=>p.name !== data.name)
-          );
-        }
-      }
     };
+    ws.onmessage= event=>{
+      const data = JSON.parse(event.data);
+
+      if(data.type === "player_join"){
+        setPlayers(prev=>{
+          if(prev.find(p=>p.name === data.name)) return prev;
+          return[...prev, data];
+        })
+      }
+      if(data.type === "player_leave"){
+        setPlayers(prev=>
+          prev.filter(p=>p.name !== data.name)
+        );
+      }
+    }
+    
+    
 
     setSocket(ws);
     return()=>{
@@ -49,7 +51,7 @@ export function Opponents() {
       }));
       ws.close();
     }
-    },[])
+  },[])
 
   return (
     <main className= "container py-4">
