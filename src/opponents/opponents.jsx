@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import './opponents.css';
-import{useWS} from '..webSocket';
+import{useWS} from '../webSocket';
 
 
 
