@@ -10,7 +10,7 @@ export function Opponents() {
   React.useEffect(()=>{
     const ws = new WebSocket("ws://localhost:3000");
 
-    const username = localStorage.getItem("user") || "Guest";
+    const username = localStorage.getItem("user")?.split("@")[0];
     const num = Math.floor(Math.random()*6)+1;
     const avatar = `monster${num}.png`;
 
