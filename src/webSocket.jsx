@@ -7,7 +7,7 @@ export function WSProvider({ children }) {
 
   useEffect(() => {
     
-    const socket = new WebSocket("wss://brooklyn-jones.click");
+    const socket = new WebSocket("wss://startup.brooklyn-jones.click");
     setWS(socket);
 
     return () => {
