@@ -3,19 +3,19 @@ import React, { createContext, useContext, useEffect, useRef } from "react";
 const WSContext = createContext(null);
 
 export function WSProvider({ children }) {
-  const wsRef = useRef(null);
+  const [ws, setWS] = useState(null);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:3000");
-    wsRef.current = ws;
+    const socket = new WebSocket("ws://localhost:3000");
+    setWS(socket);
 
     return () => {
-      ws.close();
+      socket.close();
     };
   }, []);
 
   return (
-    <WSContext.Provider value={wsRef.current}>
+    <WSContext.Provider value={ws}>
       {children}
     </WSContext.Provider>
   );
