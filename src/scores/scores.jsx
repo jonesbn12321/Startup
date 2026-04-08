@@ -50,7 +50,7 @@ export function Scores() {
       <table className="table table-striped table-hover shadow">
         <thead className="table-dark">
           <tr>
-            <th>Game</th>
+            <th>Rank</th>
             <th>Name</th>
             <th>Wins</th>
           </tr>
