@@ -1,57 +1,53 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import './opponents.css';
+import{useWS} from '..webSocket';
+
 
 
 export function Opponents() {
   const[players, setPlayers]= React.useState([]);
-  const [socket, setSocket]=React.useState(null);
+  const ws = useWS();
 
-  React.useEffect(()=>{
-    const ws = new WebSocket("ws://localhost:3000");
+  React.useEffect(() => {
+    if (!ws) return;
 
     const username = localStorage.getItem("user")?.split("@")[0];
-    const num = Math.floor(Math.random()*6)+1;
+    const num = Math.floor(Math.random() * 6) + 1;
     const avatar = `monster${num}.png`;
 
-    ws.onopen = () =>{
-      console.log("Connected");
-
+    ws.onopen = () => {
       ws.send(JSON.stringify({
-        type:"player_join",
-        name:username,
-        avatar: avatar
+        type: "player_join",
+        name: username,
+        avatar
       }));
     };
-    ws.onmessage= event=>{
+    
+    ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      if(data.type === "player_list"){
+       if (data.type === "player_list") {
         setPlayers(data.players);
       }
-      if(data.type === "player_join"){
-        setPlayers(prev=>{
-          if(prev.find(p=>p.name === data.name)) return prev;
-          return[...prev, data];
-        })
-      }
-      if(data.type === "player_leave"){
-        setPlayers(prev=>
-          prev.filter(p=>p.name !== data.name)
-        );
-      }
-    }
-    
-    
 
-    setSocket(ws);
-    return()=>{
+      if (data.type === "player_join") {
+        setPlayers(prev => {
+          if (prev.find(p => p.name === data.name)) return prev;
+          return [...prev, data];
+        });
+      }
+
+      if (data.type === "player_leave") {
+        setPlayers(prev => prev.filter(p => p.name !== data.name));
+      }
+    };
+    return () => {
       ws.send(JSON.stringify({
-        type:"player_leave",
-        name:username
+        type: "player_leave",
+        name: username
       }));
-      ws.close();
-    }
-  },[])
+    };
+  }, [ws]);
 
   return (
     <main className= "container py-4">
